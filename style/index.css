@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Metropolis';
+    src: url('../assets/font/metropolis.regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Metropolis';
+    src: url('../assets/font/metropolis.light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Metropolis';
+    src: url('../assets/font/metropolis.extra-bold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Metropolis';
+    src: url('../assets/font/metropolis.black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Metropolis', sans-serif;
+    background: #ffffff;
+    color: #0a0a0a;
+}
+
+main {
+    padding-top: 100px;
+    min-height: 100vh;
+}
+
