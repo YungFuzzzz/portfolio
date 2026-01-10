@@ -21,6 +21,28 @@ gsap.from('.nav-links li', {
     ease: 'power3.out'
 });
 
+// Scroll indicator functionality
+const scrollIndicator = document.querySelector('.scroll-indicator');
+if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', () => {
+        const firstSection = document.querySelector('.content-section');
+        if (firstSection) {
+            firstSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+    
+    // Hide indicator after scrolling
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            scrollIndicator.style.opacity = '0';
+            scrollIndicator.style.pointerEvents = 'none';
+        } else {
+            scrollIndicator.style.opacity = '1';
+            scrollIndicator.style.pointerEvents = 'auto';
+        }
+    });
+}
+
 // Navbar color switch on scroll
 const nav = document.querySelector('nav');
 const hero = document.querySelector('.hero');
