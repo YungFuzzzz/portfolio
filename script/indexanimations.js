@@ -20,3 +20,18 @@ gsap.from('.nav-links li', {
     delay: 0.5,
     ease: 'power3.out'
 });
+
+// Navbar color switch on scroll
+const nav = document.querySelector('nav');
+const hero = document.querySelector('.hero');
+
+window.addEventListener('scroll', () => {
+    const heroBottom = hero.offsetHeight;
+    const scrollPosition = window.scrollY;
+    
+    if (scrollPosition > heroBottom - 100) {
+        nav.classList.add('nav-dark');
+    } else {
+        nav.classList.remove('nav-dark');
+    }
+});

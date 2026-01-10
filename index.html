@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="style/index.css">
     <link rel="stylesheet" href="style/navbar.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
-<body>
+<body class="index-page">
     <nav>
         <div class="logo">
             <a href="index.html">
@@ -30,9 +32,49 @@
     </nav>
 
     <main>
-        <!-- Your content goes here -->
+        <section class="hero">
+            <div id="canvas-container"></div>
+            <div class="hero-content">
+                <h1>FAISAL</h1>
+                <p class="subtitle">Creative Developer & Designer</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>About</h2>
+            <p>I'm a creative developer passionate about building interactive experiences that blend design and technology. With expertise in web development, 3D graphics, and creative coding, I bring ideas to life through clean code and compelling visuals.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Featured Work</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Project One</h3>
+                    <p>An interactive web experience combining WebGL and modern web technologies.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Project Two</h3>
+                    <p>A creative e-commerce platform with seamless animations and user experience.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Project Three</h3>
+                    <p>Data visualization dashboard with real-time updates and interactive charts.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Skills</h2>
+            <p>HTML, CSS, JavaScript, Three.js, GSAP, React, Node.js, WebGL, Creative Coding</p>
+        </section>
+
+        <section class="content-section footer-section">
+            <h2>Let's Connect</h2>
+            <p>Ready to collaborate on your next project? Get in touch!</p>
+        </section>
     </main>
 
+    <script src="script/scene.js"></script>
     <script src="script/navbaranimations.js"></script>
     <script src="script/indexanimations.js"></script>
 </body>
