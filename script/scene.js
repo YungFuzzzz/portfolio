@@ -43,6 +43,8 @@ loadingManager.onLoad = () => {
     loadingScreen.style.transition = 'opacity 0.4s ease';
     setTimeout(() => {
       loadingScreen.remove();
+      // Dispatch custom event when loading is complete
+      window.dispatchEvent(new Event('sceneLoaded'));
     }, 400);
   }, 300);
 };

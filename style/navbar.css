@@ -1,4 +1,5 @@
 nav {
+    font-family: Metropolis;
     position: fixed;
     top: 0;
     left: 0;
@@ -9,7 +10,15 @@ nav {
     padding: 24px;
     z-index: 1000;
     transition: all 0.3s ease;
+    mix-blend-mode: difference;
 }
+
+/* Only hide nav on index page before animation */
+.index-page nav {
+    opacity: 0;
+}
+
+
 
 .logo {
     display: flex;
@@ -20,16 +29,7 @@ nav {
     height: 24px;
     width: auto;
     transition: all 0.3s ease;
-}
-
-.index-page .logo img {
-    mix-blend-mode: difference;
     filter: invert(1);
-}
-
-.nav-dark .logo img {
-    mix-blend-mode: normal;
-    filter: invert(0);
 }
 
 .hamburger {
@@ -46,20 +46,10 @@ nav {
 .hamburger span {
     width: 100%;
     height: 2px;
-    background: #0a0a0a;
+    background: #ffffff;
     transition: all 0.3s ease;
     display: block;
     position: absolute;
-}
-
-.index-page .hamburger span {
-    background: #ffffff;
-    mix-blend-mode: difference;
-}
-
-.nav-dark .hamburger span {
-    background: #0a0a0a;
-    mix-blend-mode: normal;
 }
 
 .hamburger span:nth-child(1) {
@@ -73,6 +63,10 @@ nav {
 
 .hamburger span:nth-child(3) {
     bottom: 0;
+}
+
+.hamburger.active span {
+    background: #0a0a0a;
 }
 
 .hamburger.active span:nth-child(1) {
@@ -103,7 +97,7 @@ nav {
 }
 
 .nav-links a {
-    color: #0a0a0a;
+    color: #ffffff;
     text-decoration: none;
     font-size: 14px;
     font-weight: 700;
@@ -111,17 +105,7 @@ nav {
     position: relative;
     display: flex;
     flex-direction: column;
-    transition: transform 0.25s ease-out, color 0.3s ease;
-}
-
-.index-page .nav-links a {
-    color: #ffffff;
-    mix-blend-mode: difference;
-}
-
-.nav-dark .nav-links a {
-    color: #0a0a0a;
-    mix-blend-mode: normal;
+    transition: transform 0.25s ease-out;
 }
 
 .nav-links a span {
@@ -151,6 +135,8 @@ nav {
         align-items: center;
         gap: 3rem;
         transition: right 0.4s ease;
+        z-index: 1000;
+        mix-blend-mode: normal;
     }
 
     .nav-links.active {
@@ -164,6 +150,8 @@ nav {
 
     .nav-links a {
         font-size: 32px;
+        color: #0a0a0a;
+        mix-blend-mode: normal;
     }
 
     .nav-links a:hover {
@@ -177,5 +165,14 @@ nav {
     .nav-links a span {
         height: auto;
         line-height: 1.2;
+    }
+    
+    /* Override nav mix-blend-mode on mobile when menu is open */
+    nav.menu-open {
+        mix-blend-mode: normal;
+    }
+    
+    nav.menu-open .logo img {
+        filter: invert(0);
     }
 }

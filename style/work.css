@@ -1,0 +1,104 @@
+/* Work Page Styles */
+
+.work-hero {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: #f8f8f8;
+}
+
+#carousel-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.project-description {
+    position: absolute;
+    bottom: 240px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #0a0a0a;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.project-description.active {
+    opacity: 1;
+}
+
+.project-description p {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-title {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #0a0a0a;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.project-title.active {
+    opacity: 1;
+}
+
+.project-title h2 {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.5px;
+}
+
+.project-title p {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    opacity: 0.7;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.scroll-indicator p {
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .project-title h2 {
+        font-size: 32px;
+    }
+    
+    .project-title p {
+        font-size: 14px;
+    }
+    
+    .scroll-indicator {
+        bottom: 32px;
+    }
+}

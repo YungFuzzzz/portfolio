@@ -44,5 +44,8 @@ function typeWriter() {
   }, TYPEWRITER_SPEEDS.type);
 }
 
-// Start typewriter effect
-setTimeout(typeWriter, 1000);
+// Start typewriter effect after loader and GSAP animations
+window.addEventListener('sceneLoaded', () => {
+  // Wait for h1 animation to complete (delay 1s + duration 1s = 2s total)
+  setTimeout(typeWriter, 2000);
+});
