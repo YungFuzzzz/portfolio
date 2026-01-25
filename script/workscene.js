@@ -16,7 +16,7 @@ const projects = [
     },
     { 
         title: 'GARDEROBE', 
-        subtitle: 'React App and webflow cms', 
+        subtitle: 'React App with webflow cms', 
         image: 'assets/img/garderobe.png',
         link: '#'
     },
@@ -189,8 +189,12 @@ canvas.addEventListener('click', (e) => {
         
         if (clickedIndex === frontIndex) {
             // Navigate to project
-            console.log('Opening project:', clickedItem.userData.project.title);
-            // window.location.href = clickedItem.userData.project.link;
+            const projectLink = clickedItem.userData.project.link;
+            if (projectLink && projectLink !== '#') {
+                window.location.href = projectLink;
+            } else {
+                console.log('Opening project:', clickedItem.userData.project.title);
+            }
         } else {
             // Rotate to clicked item
             targetRotation = clickedIndex * angleStep;
