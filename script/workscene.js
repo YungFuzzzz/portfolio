@@ -138,7 +138,7 @@ function getCurrentFrontIndex() {
 let scrollTimeout;
 window.addEventListener('wheel', (e) => {
     const delta = e.deltaY;
-    const rotationAmount = (delta * 0.001);
+    const rotationAmount = (delta * 0.003); // Increased from 0.001 to 0.005 for faster scrolling
     
     targetRotation += rotationAmount;
     
