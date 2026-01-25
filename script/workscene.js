@@ -151,7 +151,7 @@ window.addEventListener('wheel', (e) => {
         // Update description
         const frontIndex = getCurrentFrontIndex();
         updateProjectDescription(frontIndex);
-    }, 500); // Increased from 100ms to 500ms for smoother, less aggressive snapping
+    }, 350); // Increased from 100ms to 500ms for smoother, less aggressive snapping
 });
 
 // Touch support
