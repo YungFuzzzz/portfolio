@@ -1,0 +1,42 @@
+/* Lab Page Styles */
+
+.lab-content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f8f8;
+}
+
+.coming-soon {
+    text-align: center;
+    max-width: 600px;
+    padding: 0 24px;
+}
+
+.coming-soon h1 {
+    font-family: Metropolis, sans-serif;
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 800;
+    color: #0a0a0a;
+    margin: 0 0 24px 0;
+    letter-spacing: 0.5px;
+}
+
+.coming-soon p {
+    font-family: Metropolis, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #0a0a0a;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.7;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .coming-soon p {
+        font-size: 14px;
+    }
+}
