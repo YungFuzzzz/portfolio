@@ -138,20 +138,20 @@ function getCurrentFrontIndex() {
 let scrollTimeout;
 window.addEventListener('wheel', (e) => {
     const delta = e.deltaY;
-    const rotationAmount = (delta * 0.003); // Increased from 0.001 to 0.005 for faster scrolling
+    const rotationAmount = (delta * 0.003);
     
     targetRotation += rotationAmount;
     
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => {
-        // Snap to nearest item
+        // Snap to nearest item only after user stops scrolling
         const nearestAngle = Math.round(targetRotation / angleStep) * angleStep;
         targetRotation = nearestAngle;
         
         // Update description
         const frontIndex = getCurrentFrontIndex();
         updateProjectDescription(frontIndex);
-    }, 100);
+    }, 500); // Increased from 100ms to 500ms for smoother, less aggressive snapping
 });
 
 // Touch support
