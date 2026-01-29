@@ -128,6 +128,58 @@ function updateProjectDescription(index) {
     projectDescEl.classList.add('active');
 }
 
+// Navigate to project with expand animation
+function navigateToProject(project, event) {
+    // Create expanding circle overlay
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.borderRadius = '50%';
+    overlay.style.backgroundColor = '#f8f8f8';
+    overlay.style.zIndex = '9999';
+    overlay.style.pointerEvents = 'none';
+    overlay.style.transformOrigin = 'center center';
+    
+    // Position at click location
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX;
+    const y = event.clientY;
+    
+    overlay.style.left = x + 'px';
+    overlay.style.top = y + 'px';
+    overlay.style.width = '0px';
+    overlay.style.height = '0px';
+    overlay.style.transform = 'translate(-50%, -50%)';
+    
+    document.body.appendChild(overlay);
+    
+    // Store project data in localStorage
+    const projectData = {
+        title: project.title,
+        subtitle: project.subtitle,
+        category: project.subtitle,
+        images: [project.image, project.image, project.image]
+    };
+    localStorage.setItem('currentProject', JSON.stringify(projectData));
+    
+    // Animate expansion
+    gsap.to(overlay, {
+        width: '300vw',
+        height: '300vh',
+        duration: 0.8,
+        ease: 'power2.inOut',
+        onComplete: () => {
+            window.location.href = 'project-detail.html';
+        }
+    });
+    
+    // Fade out description
+    gsap.to(projectDescEl, {
+        opacity: 0,
+        duration: 0.3,
+        ease: 'power2.out'
+    });
+}
+
 // Get current front item
 function getCurrentFrontIndex() {
     const normalizedRotation = ((currentRotation % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
@@ -188,13 +240,8 @@ canvas.addEventListener('click', (e) => {
         const frontIndex = getCurrentFrontIndex();
         
         if (clickedIndex === frontIndex) {
-            // Navigate to project
-            const projectLink = clickedItem.userData.project.link;
-            if (projectLink && projectLink !== '#') {
-                window.location.href = projectLink;
-            } else {
-                console.log('Opening project:', clickedItem.userData.project.title);
-            }
+            // Navigate to project with expand animation
+            navigateToProject(clickedItem.userData.project, e);
         } else {
             // Rotate to clicked item
             targetRotation = clickedIndex * angleStep;
