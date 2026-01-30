@@ -167,10 +167,17 @@
 
 /* Mobile Styles */
 @media (max-width: 968px) {
+    body, html {
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        height: auto !important;
+    }
+    
     .about-hero {
         height: auto;
         min-height: 100vh;
         padding: 80px 0 0 0;
+        overflow: visible;
     }
     
     .about-container {

@@ -218,7 +218,7 @@ main {
 }
 
 @media (max-width: 968px) {
-    body, html {
+    .index-page, .index-page html {
         overflow: hidden;
         height: 100vh;
     }
