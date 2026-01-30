@@ -36,6 +36,16 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+    body, html {
+        overflow: hidden;
+        height: 100vh;
+    }
+    
+    .lab-content {
+        height: 100vh;
+        overflow: hidden;
+    }
+    
     .coming-soon {
         padding: 0 24px;
     }

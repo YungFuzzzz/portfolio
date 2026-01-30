@@ -208,18 +208,54 @@ window.addEventListener('wheel', (e) => {
 
 // Touch support
 let touchStartY = 0;
+let touchStartX = 0;
+let isSwiping = false;
+let swipeVelocity = 0;
+
+// Detect if mobile
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 968;
+
 canvas.addEventListener('touchstart', (e) => {
     touchStartY = e.touches[0].clientY;
-});
+    touchStartX = e.touches[0].clientX;
+    isSwiping = true;
+    swipeVelocity = 0;
+}, { passive: false });
 
 canvas.addEventListener('touchmove', (e) => {
+    if (!isSwiping) return;
+    e.preventDefault(); // Prevent page scroll on mobile
+    
     const touchEndY = e.touches[0].clientY;
-    const delta = touchStartY - touchEndY;
-    targetRotation += delta * 0.002;
+    const touchEndX = e.touches[0].clientX;
+    
+    // Use both X and Y movement for more flexible swiping
+    const deltaY = touchStartY - touchEndY;
+    const deltaX = touchStartX - touchEndX;
+    
+    // Prioritize horizontal swipe if it's more significant
+    const delta = Math.abs(deltaX) > Math.abs(deltaY) ? deltaX : deltaY;
+    
+    // Increased sensitivity for easier swiping on mobile
+    const swipeSensitivity = isMobile ? 0.004 : 0.002;
+    const rotationDelta = delta * swipeSensitivity;
+    
+    targetRotation += rotationDelta;
+    swipeVelocity = rotationDelta;
+    
     touchStartY = touchEndY;
-});
+    touchStartX = touchEndX;
+}, { passive: false });
 
 canvas.addEventListener('touchend', () => {
+    isSwiping = false;
+    
+    // Apply momentum for smooth finish
+    if (Math.abs(swipeVelocity) > 0.001) {
+        targetRotation += swipeVelocity * 15; // Momentum multiplier
+    }
+    
+    // Snap to nearest item
     const nearestAngle = Math.round(targetRotation / angleStep) * angleStep;
     targetRotation = nearestAngle;
     const frontIndex = getCurrentFrontIndex();
