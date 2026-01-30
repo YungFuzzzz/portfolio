@@ -4,6 +4,7 @@ body {
     position: relative;
     min-height: 100vh;
     background: #f8f8f8;
+    overflow-x: hidden;
 }
 
 /* Image trace container */
@@ -86,15 +87,23 @@ body {
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
+    .contact-hero {
+        padding: 80px 0;
+    }
+    
+    .container {
+        padding: 0 24px;
+    }
+    
     .contact-links {
-        gap: 2rem;
+        gap: 2.5rem;
         flex-direction: column;
     }
     
     .contact-link {
-        font-size: 1.5rem;
-        letter-spacing: 1px;
+        font-size: 1.8rem;
+        letter-spacing: 1.5px;
     }
 }
 
@@ -104,10 +113,11 @@ body {
     }
     
     .contact-links {
-        gap: 1.5rem;
+        gap: 2rem;
     }
     
     .contact-link {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
     }
 }

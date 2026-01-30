@@ -36,6 +36,29 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+    .coming-soon {
+        padding: 0 24px;
+    }
+    
+    .coming-soon h1 {
+        font-size: clamp(40px, 10vw, 60px);
+    }
+    
+    .coming-soon p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .coming-soon {
+        padding: 0 20px;
+    }
+    
+    .coming-soon h1 {
+        font-size: clamp(36px, 12vw, 48px);
+        margin-bottom: 20px;
+    }
+    
     .coming-soon p {
         font-size: 14px;
     }

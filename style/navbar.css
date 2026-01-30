@@ -122,6 +122,10 @@ nav {
     .hamburger {
         display: flex;
     }
+    
+    nav {
+        padding: 20px;
+    }
 
     .nav-links {
         position: fixed;
@@ -133,7 +137,7 @@ nav {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 3rem;
+        gap: 2.5rem;
         transition: right 0.4s ease;
         z-index: 1000;
         mix-blend-mode: normal;
@@ -149,7 +153,7 @@ nav {
     }
 
     .nav-links a {
-        font-size: 32px;
+        font-size: 28px;
         color: #0a0a0a;
         mix-blend-mode: normal;
     }
@@ -174,5 +178,28 @@ nav {
     
     nav.menu-open .logo img {
         filter: invert(0);
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 18px;
+    }
+    
+    .logo img {
+        height: 20px;
+    }
+    
+    .hamburger {
+        width: 24px;
+        height: 16px;
+    }
+    
+    .nav-links {
+        gap: 2rem;
+    }
+    
+    .nav-links a {
+        font-size: 24px;
     }
 }

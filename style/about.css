@@ -168,40 +168,149 @@
 /* Mobile Styles */
 @media (max-width: 968px) {
     .about-hero {
-        padding: 0 24px;
-        height: 100vh;
+        height: auto;
+        min-height: 100vh;
+        padding: 80px 0 0 0;
     }
     
     .about-container {
         grid-template-columns: 1fr;
-        gap: 32px;
-        height: 85%;
+        gap: 0;
+        height: auto;
     }
     
     .about-image {
-        height: 40%;
+        height: 50vh;
+        min-height: 300px;
+        max-height: 400px;
     }
     
     .about-content {
-        height: 60%;
-        overflow-y: auto;
+        height: auto;
+        padding: 40px 24px 60px;
+        overflow-y: visible;
     }
     
     .about-content h1 {
+        font-size: clamp(32px, 8vw, 40px);
+        margin-bottom: 16px;
+    }
+    
+    .intro {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    
+    .about-text {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+    
+    .about-section {
+        margin-bottom: 24px;
+    }
+    
+    .about-section h3 {
+        font-size: 11px;
         margin-bottom: 12px;
+    }
+    
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .skill-category {
+        padding: 16px;
+    }
+    
+    .skill-category h4 {
+        font-size: 10px;
+    }
+    
+    .skill-category ul li {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+    
+    .button-container {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 24px;
+    }
+    
+    .contact-button {
+        width: 100%;
+        text-align: center;
+        padding: 14px 24px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero {
+        padding: 72px 0 0 0;
+    }
+    
+    .about-image {
+        height: 45vh;
+        min-height: 280px;
+        max-height: 350px;
+    }
+    
+    .about-content {
+        padding: 32px 20px 50px;
+    }
+    
+    .about-content h1 {
+        font-size: clamp(28px, 10vw, 36px);
+        margin-bottom: 14px;
     }
     
     .intro {
         font-size: 14px;
+        line-height: 1.4;
         margin-bottom: 16px;
     }
     
-    .about-section {
-        margin-bottom: 16px;
+    .about-text {
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .about-section h3 {
+        font-size: 10px;
+        margin-bottom: 10px;
     }
     
     .skills-container {
-        gap: 16px;
-        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .skill-category {
+        padding: 14px;
+    }
+    
+    .skill-category h4 {
+        font-size: 9px;
+        margin-bottom: 10px;
+    }
+    
+    .skill-category ul li {
+        font-size: 11px;
+        margin-bottom: 5px;
+    }
+    
+    .button-container {
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .contact-button {
+        padding: 12px 20px;
+        font-size: 12px;
     }
 }

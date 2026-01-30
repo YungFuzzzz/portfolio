@@ -348,60 +348,95 @@ body {
 }
 
 /* Mobile responsive */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .back-button {
         top: 80px;
         left: 20px;
     }
+    
+    .back-button a {
+        font-size: 13px;
+    }
 
     .project-hero {
-        padding: 40px 20px 60px;
+        padding: 40px 24px 60px;
     }
 
     .project-hero-image {
-        height: 40vh;
-        min-height: 300px;
+        height: 45vh;
+        min-height: 280px;
+        border-radius: 12px;
+        margin-bottom: 32px;
+    }
+    
+    .project-category {
+        font-size: 11px;
+        margin-bottom: 12px;
     }
 
     .project-title {
-        font-size: 36px;
+        font-size: 38px;
+        letter-spacing: -0.5px;
     }
 
     .project-info {
-        padding: 60px 20px;
+        padding: 60px 24px;
     }
 
     .project-info-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 32px;
+    }
+    
+    .info-block h3 {
+        font-size: 11px;
+    }
+    
+    .info-block p {
+        font-size: 16px;
+        line-height: 1.5;
     }
 
     .project-description-section {
-        padding: 60px 20px;
+        padding: 60px 24px;
     }
 
     .description-content h2 {
-        font-size: 24px;
+        font-size: 26px;
+        margin-bottom: 20px;
     }
 
     .description-content p {
         font-size: 16px;
+        line-height: 1.7;
     }
 
     .project-gallery {
-        padding: 60px 20px;
+        padding: 60px 24px;
+    }
+    
+    .gallery-grid {
+        gap: 24px;
+    }
+    
+    .gallery-item {
+        border-radius: 8px;
     }
 
-    .next-project {
-        padding: 80px 20px 60px;
+    .view-live-project {
+        padding: 80px 24px 60px;
     }
 
     .live-project-link {
         padding: 40px 30px;
+        border-radius: 12px;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
     }
 
     .live-label {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .arrow-circle {
@@ -412,5 +447,23 @@ body {
     .arrow-circle svg {
         width: 20px;
         height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-title {
+        font-size: 32px;
+    }
+    
+    .description-content h2 {
+        font-size: 22px;
+    }
+    
+    .description-content p {
+        font-size: 15px;
+    }
+    
+    .live-label {
+        font-size: 18px;
     }
 }

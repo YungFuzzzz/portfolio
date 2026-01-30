@@ -135,6 +135,7 @@ body {
     background: #ffffff;
     color: #0a0a0a;
     margin: 0;
+    overflow-x: hidden;
 }
 
 main {
@@ -223,23 +224,55 @@ main {
     
     .hero-content {
         max-width: 100%;
-        padding-bottom: 70px;
+        padding: 20px;
+        padding-bottom: 80px;
+    }
+    
+    .hero h1 {
+        font-size: clamp(40px, 12vw, 60px);
     }
     
     .hero-footer {
         right: 50%;
         transform: translateX(50%);
-        bottom: 24px;
+        bottom: 20px;
     }
     
     .bio-text {
         max-width: 100%;
         text-align: left;
-        font-size: 14px;
-        margin-top: 1rem;
+        font-size: 15px;
+        line-height: 1.5;
+        margin-top: 1.2rem;
     }
     
     .copyright {
         text-align: center;
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 16px;
+        padding-bottom: 70px;
+    }
+    
+    .hero h1 {
+        font-size: clamp(36px, 14vw, 50px);
+    }
+    
+    .bio-text {
+        font-size: 14px;
+        line-height: 1.4;
+        margin-top: 1rem;
+    }
+    
+    .hero-footer {
+        bottom: 16px;
+    }
+    
+    .copyright {
+        font-size: 8px;
     }
 }
