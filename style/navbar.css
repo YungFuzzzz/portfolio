@@ -94,6 +94,7 @@ nav {
     position: relative;
     overflow: hidden;
     height: 1.2em;
+    display: block;
 }
 
 .nav-links a {
@@ -111,7 +112,8 @@ nav {
 .nav-links a span {
     display: block;
     height: 1.2em;
-    line-height: 1.2em;
+    line-height: 1.2;
+    flex-shrink: 0;
 }
 
 .nav-links a:hover {
