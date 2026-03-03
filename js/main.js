@@ -2,11 +2,14 @@
 
 function updateLocalTime() {
     const timeElement = document.getElementById('localTime');
-    if (timeElement) {
+    const timeMobile = document.getElementById('localTimeMobile');
+    if (timeElement || timeMobile) {
         const now = new Date();
         const hours = String(now.getHours()).padStart(2, '0');
         const minutes = String(now.getMinutes()).padStart(2, '0');
-        timeElement.textContent = `${hours}:${minutes} CET`;
+        const text = `${hours}:${minutes} CET`;
+        if (timeElement) timeElement.textContent = text;
+        if (timeMobile) timeMobile.textContent = text;
     }
 }
 
