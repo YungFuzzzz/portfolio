@@ -179,22 +179,6 @@ a {
     z-index: 2;
 }
 
-.section-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 100%;
-    padding: 40px;
-}
-
-.section-content h1 {
-    font-size: 48px;
-    font-weight: 300;
-    letter-spacing: -0.02em;
-}
-
 /* Project Title in Navigation */
 #project-title-nav {
     overflow: hidden;
@@ -629,52 +613,21 @@ nav.nav-invert a::after {
     background-color: var(--off-white);
 }
 
-/* Mobile contact content - hidden on desktop */
+/* Mobile-only elements - hidden on desktop */
 .contact-mobile-content {
     display: none;
 }
 
-/* =============================================
-   HAMBURGER TOGGLE BUTTON
-   ============================================= */
-.nav-toggle {
+.project-detail-back {
     display: none;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 200;
-    background: none;
-    border: none;
-    cursor: pointer;
-    width: 22px;
-    height: 12px;
-    padding: 0;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
 }
 
-.nav-toggle span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: var(--off-black);
-    border-radius: 1px;
-    transition: transform 0.3s ease;
-    transform-origin: center center;
+.mobile-hero {
+    display: none;
 }
 
-.nav-toggle.active span:first-child {
-    transform: translateY(5px) rotate(45deg);
-}
-
-.nav-toggle.active span:last-child {
-    transform: translateY(-5px) rotate(-45deg);
-}
-
-/* Invert hamburger on playground */
-.nav-toggle.nav-invert span {
-    background-color: var(--off-white);
+.desktop-note {
+    display: none;
 }
 
 /* =============================================
@@ -740,101 +693,150 @@ nav.nav-invert a::after {
    RESPONSIVE - MOBILE (max-width: 768px)
    ============================================= */
 @media (max-width: 768px) {
-    /* Show hamburger */
-    .nav-toggle {
-        display: flex;
+    /* ---- CORE: One-pager scroll layout ---- */
+    body {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: auto;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
     }
 
-    /* Nav becomes fullscreen overlay */
+    /* No navigation needed on mobile */
     nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transform: none;
-        background-color: var(--off-white);
-        z-index: 150;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.35s ease;
+        display: none;
+    }
+
+    /* ---- MOBILE HERO ---- */
+    .mobile-hero {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
+        height: 100vh;
+        height: 100svh;
+        padding: 24px;
+        text-align: center;
+        gap: 12px;
     }
 
-    nav.nav-open {
+    .mobile-hero-name {
+        font-size: 28px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--off-black);
+    }
+
+    .mobile-hero-tagline {
+        font-size: 12px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--off-black);
+        opacity: 0.4;
+    }
+
+    /* ---- SECTIONS: flow naturally ---- */
+    .page-section {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        height: auto;
         opacity: 1;
         pointer-events: auto;
+        z-index: auto;
     }
 
-    nav.nav-invert {
-        background-color: var(--off-black);
+    .page-section.active {
+        z-index: auto;
     }
 
-    /* Nav invert: remove blend mode on mobile, use solid bg instead */
-    nav.nav-invert {
+    /* ---- HIDDEN ON MOBILE ---- */
+    #home {
+        display: none;
+    }
+
+    #playground {
+        display: none;
+    }
+
+    /* ---- WORKS ---- */
+    #works {
+        min-height: auto;
+        position: relative;
+        padding: 60px 20px 80px;
+    }
+
+    .works-hover-wrapper {
+        display: none;
+    }
+
+    .works-list {
+        position: relative;
+        top: auto;
+        left: auto;
         mix-blend-mode: normal;
     }
 
-    ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 2px;
+    .works-list-title {
+        color: rgba(26, 26, 26, 0.35);
+        margin-bottom: 12px;
     }
 
-    li {
-        margin: 0 !important;
+    .works-list-item {
+        margin-bottom: 2px;
     }
 
-    /* Hide project title in mobile nav */
-    #project-title-nav {
-        display: none !important;
+    .works-list-item a {
+        font-size: 15px;
+        padding: 6px 0;
+        color: var(--off-black);
     }
 
-    a {
-        font-size: 16px;
-        font-weight: 400;
-        padding: 10px 0;
-        letter-spacing: 0.02em;
+    .works-list-item a::after {
+        background-color: var(--off-black);
     }
 
-    /* Contact items in nav overlay */
-    .contact-item {
-        margin-top: 0;
-    }
-
-    .location, .local-time {
-        font-size: 13px;
-        font-weight: 400;
-    }
-
-    /* About page mobile */
+    /* ---- ABOUT ---- */
     #about {
         display: flex;
         flex-direction: column;
+        overflow: visible;
+        position: relative;
     }
 
     .about-content {
         order: 1;
-        padding: 56px 20px 28px;
+        position: relative;
+        right: auto;
+        width: 100%;
+        height: auto;
+        padding: 60px 20px 28px;
+        overflow-y: visible;
     }
 
     .about-images {
         order: 2;
-        padding: 0 20px 40px;
+        position: relative;
+        left: auto;
         width: 100%;
+        height: auto;
+        padding: 0 20px 40px;
         flex-direction: column;
         gap: 12px;
+        overflow-y: visible;
+    }
+
+    .about-animate {
+        opacity: 1;
+        transform: none;
     }
 
     .about-img {
         aspect-ratio: 4 / 5;
         border-radius: 2px;
-    }
-
-    .about-content {
-        padding: 28px 20px 28px;
     }
 
     .about-heading {
@@ -866,78 +868,13 @@ nav.nav-invert a::after {
         line-height: 1.8;
     }
 
-    /* Project detail mobile */
-    .project-detail-layout {
-        display: flex;
-        flex-direction: column;
+    /* ---- CONTACT ---- */
+    #contact {
+        min-height: 100vh;
+        min-height: 100svh;
+        position: relative;
     }
 
-    .project-detail-info {
-        order: 1;
-        padding: 56px 20px 28px;
-    }
-
-    .project-detail-images {
-        order: 2;
-        padding: 0 20px 40px;
-        gap: 12px;
-    }
-
-    .project-detail-img {
-        aspect-ratio: 4 / 5;
-        border-radius: 2px;
-    }
-
-    .project-detail-title {
-        font-size: 20px;
-        margin-bottom: 24px;
-        padding-bottom: 24px;
-    }
-
-    .project-detail-about {
-        margin-bottom: 24px;
-        padding-bottom: 24px;
-    }
-
-    .project-detail-description {
-        font-size: 13px;
-        line-height: 1.7;
-    }
-
-    .project-detail-meta {
-        gap: 20px;
-        margin-bottom: 24px;
-        padding-bottom: 24px;
-    }
-
-    .project-detail-live-btn {
-        align-self: stretch;
-        text-align: center;
-        padding: 14px 24px;
-        font-size: 12px;
-    }
-
-    /* Works list mobile */
-    .works-list {
-        left: 20px;
-        top: 56px;
-    }
-
-    .works-list-item a {
-        font-size: 15px;
-        padding: 6px 0;
-    }
-
-    .works-list-item {
-        margin-bottom: 2px;
-    }
-
-    /* Section content */
-    .section-content h1 {
-        font-size: 28px;
-    }
-
-    /* Mobile contact content */
     .contact-mobile-content {
         display: flex;
         flex-direction: column;
@@ -1019,47 +956,158 @@ nav.nav-invert a::after {
         opacity: 0.4;
     }
 
-    /* Playground mobile */
-    #playground {
-        background-color: var(--off-black);
+    .desktop-note {
+        display: block;
+        font-size: 10px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--off-black);
+        opacity: 0.2;
+        margin-top: 20px;
     }
+
+    /* ---- PROJECT DETAIL (overlay on mobile) ---- */
+    #project-detail {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 50;
+        background-color: var(--off-white);
+        opacity: 0;
+        pointer-events: none;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #project-detail.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .project-detail-back {
+        display: block;
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        background: none;
+        border: none;
+        border-bottom: 1px solid rgba(26, 26, 26, 0.06);
+        background-color: var(--off-white);
+        color: var(--off-black);
+        font-family: 'Metropolis', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        padding: 16px 20px;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .project-detail-layout {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .project-detail-info {
+        order: 1;
+        position: relative;
+        right: auto;
+        width: 100%;
+        height: auto;
+        padding: 20px 20px 28px;
+        overflow-y: visible;
+    }
+
+    .project-detail-images {
+        order: 2;
+        position: relative;
+        left: auto;
+        width: 100%;
+        height: auto;
+        padding: 0 20px 40px;
+        gap: 12px;
+        overflow-y: visible;
+    }
+
+    .project-detail-img {
+        aspect-ratio: 4 / 5;
+        border-radius: 2px;
+    }
+
+    .project-detail-title {
+        font-size: 20px;
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+    }
+
+    .project-detail-about {
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+    }
+
+    .project-detail-description {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .project-detail-meta {
+        gap: 20px;
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+    }
+
+    .project-detail-live-btn {
+        align-self: stretch;
+        text-align: center;
+        padding: 14px 24px;
+        font-size: 12px;
+    }
+
 }
 
 /* =============================================
    RESPONSIVE - SMALL MOBILE (max-width: 480px)
    ============================================= */
 @media (max-width: 480px) {
-    .about-images {
-        padding: 52px 16px 0;
+    .mobile-hero-name {
+        font-size: 24px;
+    }
+
+    #works {
+        padding: 48px 16px 64px;
     }
 
     .about-content {
-        padding: 24px 16px 36px;
+        padding: 48px 16px 24px;
     }
 
-    .project-detail-images {
-        padding: 52px 16px 0;
+    .about-images {
+        padding: 0 16px 36px;
     }
 
     .project-detail-info {
-        padding: 24px 16px 36px;
+        padding: 20px 16px 24px;
+    }
+
+    .project-detail-images {
+        padding: 0 16px 36px;
     }
 
     .project-detail-title {
         font-size: 18px;
     }
 
-    .section-content h1 {
-        font-size: 22px;
-    }
-
     .contact-mobile-list a {
         font-size: 18px;
-    }
-
-    .works-list {
-        left: 16px;
-        top: 52px;
     }
 
     .works-list-item a {

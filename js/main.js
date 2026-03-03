@@ -19,126 +19,104 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateLocalTime, 1000);
 
     const links = document.querySelectorAll('a');
-    const sections = document.querySelectorAll('.page-section');
     const contactItems = document.querySelectorAll('.contact-item');
     const worksFilterItems = document.querySelectorAll('.works-filter');
     const projectTitleNav = document.getElementById('project-title-nav');
-
-    // ------------------------------------
-    // MOBILE NAV TOGGLE
-    // ------------------------------------
-    const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('nav');
 
     function isMobile() {
         return window.innerWidth <= 768;
     }
 
-    function openMobileNav() {
-        if (!navToggle || !nav) return;
-        navToggle.classList.add('active');
-        nav.classList.add('nav-open');
-    }
-
-    function closeMobileNav() {
-        if (!navToggle || !nav) return;
-        navToggle.classList.remove('active');
-        nav.classList.remove('nav-open');
-    }
-
-    if (navToggle) {
-        navToggle.addEventListener('click', () => {
-            if (nav.classList.contains('nav-open')) {
-                closeMobileNav();
-            } else {
-                openMobileNav();
-            }
+    // ------------------------------------
+    // MOBILE: ONE-PAGER SETUP
+    // ------------------------------------
+    function setupMobile() {
+        // Make about-animate items visible (no GSAP on mobile)
+        document.querySelectorAll('.about-animate').forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
         });
-    }
 
-    // Sync hamburger invert state with nav
-    function syncToggleInvert() {
-        if (!navToggle || !nav) return;
-        if (nav.classList.contains('nav-invert')) {
-            navToggle.classList.add('nav-invert');
-        } else {
-            navToggle.classList.remove('nav-invert');
+        // Populate works list immediately on mobile
+        if (typeof projectsData !== 'undefined') {
+            populateWorksList();
         }
     }
 
-    gsap.set('a', { '--pseudo-scale': 0 });
-
-    // Hide all items initially for page load animation
-    gsap.set('li:not(.contact-item):not(.works-filter)', { opacity: 0, y: 40 });
-
-    // Hide showcase initially
-    const showcaseContainer = document.querySelector('.showcase-container');
-    if (showcaseContainer) {
-        gsap.set(showcaseContainer, { opacity: 0, y: 100 });
-    }
-
-    contactItems.forEach(item => {
-        item.style.display = 'none';
-        gsap.set(item, { opacity: 0, width: 0, marginLeft: 0, marginRight: 0, pointerEvents: 'none' });
-    });
-
-    worksFilterItems.forEach(item => {
-        item.style.display = 'none';
-        gsap.set(item, { opacity: 0, width: 0, marginLeft: 0, marginRight: 0, pointerEvents: 'none' });
-    });
-
     // ------------------------------------
-    // PROJECT TITLE INITIAL STATE
+    // INIT: Desktop vs Mobile
     // ------------------------------------
-    // The project title li is set to width:auto, margin:12px, but hidden via y:30 + opacity:0
-    // (same as all other li items). showcase.js will fill in the text content.
-    if (projectTitleNav) {
-        projectTitleNav.classList.add('visible');
-        gsap.set(projectTitleNav, { width: 'auto', marginLeft: 12, marginRight: 12 });
-    }
+    if (isMobile()) {
+        setupMobile();
+    } else {
+        // Desktop: GSAP-based section switching
+        gsap.set('a', { '--pseudo-scale': 0 });
 
-    // ------------------------------------
-    // PAGE LOAD ANIMATION - Unified Motion
-    // ------------------------------------
-    // We poll until the showcase has injected the project title text,
-    // then we animate everything in as one smooth motion.
-    function startPageLoadAnimation() {
-        if (projectTitleNav) {
-            const text = projectTitleNav.querySelector('.project-title-text');
-            if (!text || !text.textContent) {
-                requestAnimationFrame(startPageLoadAnimation);
-                return;
-            }
-        }
+        // Hide all items initially for page load animation
+        gsap.set('li:not(.contact-item):not(.works-filter)', { opacity: 0, y: 40 });
 
-        // Master timeline - one unified motion
-        const master = gsap.timeline({ defaults: { ease: 'expo.out' } });
-
-        // 1) Carousel rises from below: fade in, slide up (no scale to avoid jitter)
+        // Hide showcase initially
+        const showcaseContainer = document.querySelector('.showcase-container');
         if (showcaseContainer) {
-            master.to(showcaseContainer, {
+            gsap.set(showcaseContainer, { opacity: 0, y: 100 });
+        }
+
+        contactItems.forEach(item => {
+            item.style.display = 'none';
+            gsap.set(item, { opacity: 0, width: 0, marginLeft: 0, marginRight: 0, pointerEvents: 'none' });
+        });
+
+        worksFilterItems.forEach(item => {
+            item.style.display = 'none';
+            gsap.set(item, { opacity: 0, width: 0, marginLeft: 0, marginRight: 0, pointerEvents: 'none' });
+        });
+
+        // ------------------------------------
+        // PROJECT TITLE INITIAL STATE
+        // ------------------------------------
+        if (projectTitleNav) {
+            projectTitleNav.classList.add('visible');
+            gsap.set(projectTitleNav, { width: 'auto', marginLeft: 12, marginRight: 12 });
+        }
+
+        // ------------------------------------
+        // PAGE LOAD ANIMATION - Unified Motion
+        // ------------------------------------
+        function startPageLoadAnimation() {
+            if (projectTitleNav) {
+                const text = projectTitleNav.querySelector('.project-title-text');
+                if (!text || !text.textContent) {
+                    requestAnimationFrame(startPageLoadAnimation);
+                    return;
+                }
+            }
+
+            const master = gsap.timeline({ defaults: { ease: 'expo.out' } });
+
+            if (showcaseContainer) {
+                master.to(showcaseContainer, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: 'power4.out'
+                }, 0);
+            }
+
+            master.to('li:not(.contact-item):not(.works-filter)', {
                 opacity: 1,
                 y: 0,
                 duration: 1,
+                stagger: 0.05,
                 ease: 'power4.out'
-            }, 0);
+            }, 0.15);
         }
 
-        // 2) Nav items sweep in with stagger, overlapping the carousel rise
-        master.to('li:not(.contact-item):not(.works-filter)', {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            stagger: 0.05,
-            ease: 'power4.out'
-        }, 0.15);
+        startPageLoadAnimation();
+
+        // Mark home button as active
+        const firstLink = links[0];
+        if (firstLink) firstLink.classList.add('active');
     }
-
-    startPageLoadAnimation();
-
-    // Mark home button as active
-    const firstLink = links[0];
-    if (firstLink) firstLink.classList.add('active');
 
     // ------------------------------------
     // HOVER ANIMATIONS FOR UNDERLINES
@@ -202,6 +180,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             e.preventDefault();
 
+            // Mobile: no nav, skip
+            if (isMobile()) return;
+
+            // =============================
+            // DESKTOP: GSAP section transitions
+            // =============================
+
             const targetId = href.substring(1);
             const targetSection = document.getElementById(targetId);
             const currentSection = document.querySelector('.page-section.active');
@@ -222,12 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 nav.classList.add('nav-invert');
             } else {
                 nav.classList.remove('nav-invert');
-            }
-            syncToggleInvert();
-
-            // Close mobile nav after clicking a link
-            if (isMobile()) {
-                closeMobileNav();
             }
 
             // --------------------------
@@ -629,6 +608,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ------------------------------------
+    // PROJECT DETAIL BACK BUTTON (mobile)
+    // ------------------------------------
+    const detailBackBtn = document.querySelector('.project-detail-back');
+    if (detailBackBtn) {
+        detailBackBtn.addEventListener('click', () => {
+            const detailSection = document.getElementById('project-detail');
+            if (detailSection) {
+                gsap.to(detailSection, {
+                    opacity: 0, duration: 0.3, ease: 'power2.in',
+                    onComplete: () => {
+                        detailSection.classList.remove('active');
+                    }
+                });
+            }
+        });
+    }
+
+    // ------------------------------------
     // AUTO RESIZE WHEN TITLE CHANGES
     // ------------------------------------
     if (projectTitleNav) {
@@ -823,6 +820,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 populateProjectDetail(project);
 
+                if (isMobile()) {
+                    // Mobile: show project detail as fixed overlay
+                    const detailSection = document.getElementById('project-detail');
+                    if (detailSection) {
+                        detailSection.scrollTop = 0;
+                        detailSection.classList.add('active');
+                        gsap.fromTo(detailSection, { opacity: 0 }, {
+                            opacity: 1, duration: 0.4, ease: 'power2.out'
+                        });
+                    }
+                    return;
+                }
+
+                // Desktop
                 const currentSection = document.querySelector('.page-section.active');
                 const detailSection = document.getElementById('project-detail');
 

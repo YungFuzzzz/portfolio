@@ -10,9 +10,6 @@
 </head>
 <body>
     <!-- Navigation -->
-    <button class="nav-toggle" aria-label="Menu">
-        <span></span><span></span>
-    </button>
     <nav>
         <ul>
             <li><a href="#home" class="home-button active">Faisal Collinet</a></li>
@@ -31,6 +28,13 @@
             <li class="contact-item"><span class="local-time" id="localTime">00:00 CET</span></li>
         </ul>
     </nav>
+
+    <!-- Mobile Hero -->
+    <div class="mobile-hero">
+        <h1 class="mobile-hero-name">Faisal Collinet</h1>
+        <p class="mobile-hero-tagline">Digital Experience Designer</p>
+        <p class="desktop-note">For the full experience, visit on desktop.</p>
+    </div>
 
     <!-- Sections -->
     <section id="home" class="page-section active">
@@ -98,8 +102,6 @@
                 </div>
             </div>
         </div>
-            </div>
-        </div>
     </section>
 
     <section id="playground" class="page-section">
@@ -107,7 +109,6 @@
     </section>
 
     <section id="contact" class="page-section">
-        <div class="section-content"></div>
         <div class="contact-mobile-content">
             <h2 class="contact-mobile-heading">Get in touch</h2>
             <ul class="contact-mobile-list">
@@ -123,6 +124,7 @@
     </section>
 
     <section id="project-detail" class="page-section">
+        <button class="project-detail-back" aria-label="Back">&larr; Back</button>
         <div class="project-detail-layout">
             <div class="project-detail-images"></div>
             <div class="project-detail-info">
