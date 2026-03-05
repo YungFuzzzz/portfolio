@@ -1,0 +1,47 @@
+/* Project Showcase - Arch above navigation */
+.project-showcase {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: auto;
+    overflow: visible;
+    z-index: 10;
+}
+
+.showcase-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+
+.showcase-container:active {
+    cursor: default;
+}
+
+.showcase-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.showcase-item {
+    position: absolute;
+    width: 288px;  /* IMAGE SIZE - Adjust here to change image dimensions */
+    height: 384px; /* Keep 4:3 portrait ratio (width * 1.333) */
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    will-change: transform;
+    transform-origin: center center;
+}
+
+.showcase-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
