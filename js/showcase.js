@@ -123,10 +123,18 @@ function initProjectShowcase() {
     // Configuration
     const itemsPerSet = projects.length;
     const totalItems = items.length; // 18 (3 sets)
-    const mobile = window.innerWidth <= 768;
-    const itemSpacing = mobile ? 150 : 240;
-    const archHeight = mobile ? 350 : 550;
-    const archWidth = window.innerWidth * 1;
+    let mobile = window.innerWidth <= 768;
+    let itemSpacing = mobile ? 150 : 240;
+    let archHeight = mobile ? 350 : 550;
+    let archWidth = window.innerWidth * 1;
+
+    // Recalculate on resize so the arch stays responsive
+    window.addEventListener('resize', () => {
+        mobile = window.innerWidth <= 768;
+        itemSpacing = mobile ? 150 : 240;
+        archHeight = mobile ? 350 : 550;
+        archWidth = window.innerWidth * 1;
+    });
     
     // Scroll state
     let scroll = 0;
