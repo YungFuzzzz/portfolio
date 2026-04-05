@@ -3,23 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAISAL COLLINET</title>
-    <link rel="icon" href="./assets/img/favicon.svg" type="image/x-icon" />
+    <meta name="description" content="Faisal Collinet builds strategic brands and design-driven websites that perform.">
+    <title>Faisal Collinet ┃ Creative Brand & Web Development</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/loader.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/carousel.css">
+    <link rel="stylesheet" href="./css/project-overlay.css">
+    <link rel="stylesheet" href="./css/work-list-overlay.css">
+    <link rel="stylesheet" href="./css/skills-carousel.css">
 </head>
 <body>
-    <script>
-        (function () {
-            var isMobile = /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-                || (window.innerWidth <= 768);
-            if (isMobile) {
-                window.location.replace('mobile.html');
-            } else {
-                window.location.replace('desktop.html');
-            }
-        })();
-    </script>
-    <noscript>
-        <meta http-equiv="refresh" content="0;url=desktop.html">
-    </noscript>
+    <div class="site-loader" id="siteLoader" aria-hidden="true">
+        <div class="loader-brand" aria-label="Loading">
+            <span class="loader-brand-layer loader-brand-base">
+                <img class="loader-brand-logo" src="./assets/img/viceslogo_alt.svg" alt="" width="22" height="22" aria-hidden="true">
+                <span class="loader-brand-name">Faisal Collinet</span>
+            </span>
+            <span class="loader-brand-layer loader-brand-fill" aria-hidden="true">
+                <img class="loader-brand-logo" src="./assets/img/viceslogo_alt.svg" alt="" width="22" height="22">
+                <span class="loader-brand-name">Faisal Collinet</span>
+            </span>
+        </div>
+        <div class="loader-progress-track" aria-hidden="true">
+            <span class="loader-progress-fill"></span>
+        </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Primary">
+        <div class="nav-shell">
+            <a class="nav-brand" href="#work" aria-label="Home">
+                <img src="./assets/img/viceslogo_alt.svg" alt="Vices" width="22" height="22">
+                <span class="nav-brand-name">Faisal Collinet</span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </button>
+        </div>
+
+        <div class="nav-panel" id="navPanel" aria-hidden="true">
+            <div class="nav-panel-left">
+                <ul class="nav-menu" role="list">
+                    <li>
+                        <a class="nav-menu-link" href="#work-gallery">
+                            <span class="nav-menu-mask">
+                                <span class="nav-menu-roll">
+                                    <span>WORK</span>
+                                    <span>WORK</span>
+                                </span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-menu-link" href="#about">
+                            <span class="nav-menu-mask">
+                                <span class="nav-menu-roll">
+                                    <span>ABOUT</span>
+                                    <span>ABOUT</span>
+                                </span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-menu-link" href="#lab">
+                            <span class="nav-menu-mask">
+                                <span class="nav-menu-roll">
+                                    <span>LAB</span>
+                                    <span>LAB</span>
+                                </span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-socials" aria-label="Social links">
+                    <a class="nav-social-link" href="https://www.instagram.com/faisal_collinet/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+                    <a class="nav-social-link" href="https://www.linkedin.com/in/faisal-collinet-2251b5232/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+                </div>
+            </div>
+
+            <div class="nav-panel-right">
+                <img class="nav-panel-image" src="./assets/img/contact.webp" alt="Decorative navigation visual">
+                <a class="btn btn--accent nav-panel-cta" href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <section id="work" class="hero-block">
+            <div class="dither-container" aria-hidden="true">
+                <canvas id="ditherCanvas"></canvas>
+            </div>
+
+            <div class="hero-inner">
+                <p class="hero-kicker">Faisal Collinet</p>
+                <h1>CREATIVE BRAND & WEB DEVELOPMENT</h1>
+            </div>
+
+            <div class="hero-side">
+                <p class="hero-side-copy">Building design-driven digital experiences with a distinct visual language, crafted to engage and leave a lasting impression through a multidisciplinary approach.</p>
+                <div class="hero-side-ctas">
+                    <a class="btn btn--accent hero-cta" href="#contact">Contact me</a>
+                    <a class="btn btn--alt hero-cta hero-cta-alt" href="#work-gallery">See my work</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="work-gallery" class="work-section" aria-label="Work gallery">
+            <div class="work-carousel-stage">
+                <canvas id="carouselCanvas"></canvas>
+            </div>
+        </section>
+
+        <section class="work-list-cta-section" aria-label="See all work">
+            <button id="seeAllWorkBtn" class="btn btn--accent work-list-cta" type="button">See all work</button>
+        </section>
+
+        <section id="about" class="about-section" aria-label="About Faisal">
+            <div class="about-shell">
+                <h2 class="about-title">ABOUT FAISAL</h2>
+                <figure class="about-image-wrap">
+                    <img class="about-image" src="./assets/img/faisal.webp" alt="Portrait of Faisal Collinet" width="1200" height="1200" loading="lazy">
+                </figure>
+
+                <div class="about-copy" aria-label="About text">
+                    <p>I am Faisal Collinet, a digital designer with a degree in Digital Experience Design, focused on branding, digital design, and web development. My work is shaped by a long-standing interest in abstract art, which pushes me to approach projects in a bold and unconventional way. That influence is visible in how I build visual systems that feel expressive, but still clear and functional in real use.</p>
+                    <p>My process moves from concept and storytelling into structure, interaction, and execution. I enjoy translating ideas into strong visuals and turning those into smooth, engaging digital experiences.</p>
+                    <p>Outside of digital work, I spend a lot of time exploring high-end fashion and visiting art museums, constantly feeding my perspective on aesthetics, culture, and form. At the same time, I have a background in garden construction and maintenance, which keeps me connected to nature and adds a different sense of balance to how I think and create.</p>
+                    <p>Across everything I do, I aim to create work that feels distinct, thoughtful, and grounded in both creativity and real-world context.</p>
+                </div>
+
+                <section class="skills-carousel-section" aria-label="Rotating skills carousel">
+                    <p class="skills-section-title">SKILLS</p>
+                    <div class="skills-carousel-stage">
+                        <canvas id="skillsCarouselCanvas"></canvas>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <section id="lab" class="lab-section" aria-label="Lab">
+            <div class="lab-blob-field" aria-hidden="true"></div>
+            <div class="lab-shell">
+                <p class="lab-kicker">LAB</p>
+                <h2 class="lab-title">Experimental space for future ideas</h2>
+                <p class="lab-copy">A personal playground where I explore visuals across different mediums. From 3D and motion to print and digital experiments, this space is about pushing ideas, testing styles, and creating without constraints.</p>
+                <div class="lab-actions">
+                    <button class="btn btn--alt lab-cta" type="button" disabled>Coming soon</button>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="contact-section" aria-label="Contact">
+            <div class="contact-blob-field" aria-hidden="true"></div>
+            <div class="contact-shell">
+                <div class="contact-layout">
+                    <div class="contact-content">
+                        <div class="contact-head">
+                            <h2 class="contact-title">SAY HI</h2>
+                            <p class="contact-subtitle">Got a job opportunity, collaboration idea or just want to talk about something random? I’m all ears. You can find me on LinkedIn or Instagram to see what I’m up to and get a glimpse beyond the screen.</p>
+                        </div>
+
+                        <div class="contact-columns">
+                            <div class="contact-direct">
+                                <a class="contact-email-field" href="mailto:hello@faisalcollinet.com" aria-label="Send an email to hello@faisalcollinet.com">
+                                    <span class="contact-email-text">FAISALCOLLINET01@GMAIL.COM</span>
+                                </a>
+
+                                <div class="contact-direct-actions">
+                                    <a class="btn btn--accent contact-direct-cta" href="mailto:hello@faisalcollinet.com">Send an email</a>
+                                    <span class="contact-direct-or" aria-hidden="true">OR</span>
+                                    <a class="btn btn--accent contact-direct-cta" href="https://www.instagram.com/faisal_collinet/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                                    <a class="btn btn--accent contact-direct-cta" href="https://www.linkedin.com/in/faisal-collinet-2251b5232/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <figure id="imageContainer" class="contact-media" aria-hidden="true">
+                        <img id="myImage" class="contact-image" src="./assets/img/contact_big.webp" alt="" loading="lazy" decoding="async">
+                    </figure>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-grid">
+                <nav class="site-footer-list" aria-label="Footer index">
+                    <p class="site-footer-list-title">Index</p>
+                    <a class="site-footer-link" href="#work">HOME</a>
+                    <a class="site-footer-link" href="#work-gallery">WORK</a>
+                    <a class="site-footer-link" href="#about">ABOUT</a>
+                    <a class="site-footer-link" href="#lab">LAB</a>
+                    <a class="site-footer-link" href="#contact">CONTACT</a>
+                </nav>
+
+                <div class="site-footer-list" aria-label="Footer social links">
+                    <p class="site-footer-list-title">Social</p>
+                    <a class="site-footer-link" href="https://www.linkedin.com/in/faisal-collinet-2251b5232/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+                    <a class="site-footer-link" href="https://www.instagram.com/faisal_collinet/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+                </div>
+
+                <address class="site-footer-list site-footer-contact" aria-label="Footer contact details">
+                    <p class="site-footer-list-title">Contact</p>
+                    <a class="site-footer-link" href="mailto:hello@faisalcollinet.com">EMAIL</a>
+                </address>
+            </div>
+
+            <div class="site-footer-meta">
+                <span class="site-footer-note">&copy; 2026</span>
+                <a class="site-footer-link site-footer-link--muted site-footer-scroll" href="#work">Go to top</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
+    <script src="./js/loader.js" defer></script>
+    <script src="./js/dither.js" defer></script>
+    <script src="./js/nav.js" defer></script>
+    <script src="./js/about.js" defer></script>
+    <script src="./js/lab.js" defer></script>
+    <script src="./js/contact.js" defer></script>
+    <script src="./js/contact-image-effect.js" defer></script>
+    <script src="./js/lab-background.js" defer></script>
+    <script src="./js/footer-parallax.js" defer></script>
+    <script type="module" src="./js/skills-carousel.js" defer></script>
+    <script src="./js/project-overlay.js" defer></script>
+    <script src="./js/work-list-overlay.js" defer></script>
+    <script type="module" src="./js/work-carousel.js" defer></script>
 </body>
 </html>
