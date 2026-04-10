@@ -30,15 +30,11 @@
             <div class="project-overlay-read-content">
                 <p class="project-overlay-kicker">Project overview</p>
                 <h3 class="project-overlay-read-title"></h3>
-                <p class="project-overlay-read-description"></p>
+                <div class="project-overlay-read-description"></div>
                 <div class="project-overlay-meta">
                     <div class="project-overlay-meta-row">
                         <span class="project-overlay-meta-label">Role</span>
                         <span class="project-overlay-meta-value" data-meta="role"></span>
-                    </div>
-                    <div class="project-overlay-meta-row">
-                        <span class="project-overlay-meta-label">Technology</span>
-                        <span class="project-overlay-meta-value" data-meta="technology"></span>
                     </div>
                     <div class="project-overlay-meta-row">
                         <span class="project-overlay-meta-label">Year</span>
@@ -47,9 +43,8 @@
                 </div>
                 <a class="btn btn--accent project-overlay-live" target="_blank" rel="noopener noreferrer">View live</a>
 
-                <section class="project-overlay-process" aria-label="Project process">
-                    <p class="project-overlay-kicker">Process</p>
-                    <div class="project-overlay-process-body"></div>
+                <section class="project-overlay-breakdown" aria-label="Project breakdown">
+                    <div class="project-overlay-breakdown-body"></div>
                 </section>
 
                 <section class="project-overlay-contributors" aria-label="Project contributors">
@@ -78,10 +73,9 @@
     const readDescriptionEl = overlay.querySelector(".project-overlay-read-description");
     const roleEl = overlay.querySelector('[data-meta="role"]');
     const yearEl = overlay.querySelector('[data-meta="year"]');
-    const techEl = overlay.querySelector('[data-meta="technology"]');
     const liveEl = overlay.querySelector(".project-overlay-live");
-    const processBodyEl = overlay.querySelector(".project-overlay-process-body");
-    const processSectionEl = overlay.querySelector(".project-overlay-process");
+    const breakdownBodyEl = overlay.querySelector(".project-overlay-breakdown-body");
+    const breakdownSectionEl = overlay.querySelector(".project-overlay-breakdown");
     const contributorsSectionEl = overlay.querySelector(".project-overlay-contributors");
     const contributorsListEl = overlay.querySelector(".project-overlay-contributors-list");
 
@@ -105,7 +99,9 @@
             return String(projectData.slogan).trim();
         }
 
-        const description = String(projectData?.description || "").trim();
+        const description = Array.isArray(projectData?.description)
+            ? projectData.description.map((item) => String(item || "").trim()).filter(Boolean).join(" ")
+            : String(projectData?.description || "").trim();
         if (!description) {
             return "Selected project case";
         }
@@ -258,10 +254,29 @@
             heroImageEl.alt = title;
         }
 
-        readDescriptionEl.textContent = projectData.description || "";
+        if (readDescriptionEl instanceof HTMLElement) {
+            readDescriptionEl.innerHTML = "";
+
+            const descriptionItems = Array.isArray(projectData.description)
+                ? projectData.description.map((item) => String(item || "").trim()).filter(Boolean)
+                : [String(projectData.description || "").trim()].filter(Boolean);
+
+            if (descriptionItems.length === 0) {
+                const fallback = document.createElement("p");
+                fallback.className = "project-overlay-read-description-text";
+                fallback.textContent = "This project explores a complete concept, from strategy and visual direction to the final experience.";
+                readDescriptionEl.appendChild(fallback);
+            } else {
+                descriptionItems.forEach((paragraph) => {
+                    const paragraphEl = document.createElement("p");
+                    paragraphEl.className = "project-overlay-read-description-text";
+                    paragraphEl.textContent = paragraph;
+                    readDescriptionEl.appendChild(paragraphEl);
+                });
+            }
+        }
         roleEl.textContent = projectData.role || "-";
         yearEl.textContent = projectData.year || "-";
-        techEl.textContent = projectData.technology || "-";
 
         const liveUrl = projectData.liveUrl || "";
         if (liveUrl) {
@@ -272,30 +287,90 @@
             liveEl.style.display = "none";
         }
 
-        const processItems = Array.isArray(projectData.process)
-            ? projectData.process.map((item) => String(item || "").trim()).filter(Boolean)
-            : [String(projectData.process || "").trim()].filter(Boolean);
+        const sectionTitles = ["Concept", "How", "What", "Result"];
+        const sectionKeys = ["concept", "how", "what", "result"];
+        const breakdownSource = projectData.breakdown || projectData.process;
+        const breakdownItems = Array.isArray(breakdownSource)
+            ? breakdownSource
+            : breakdownSource && typeof breakdownSource === "object"
+                ? sectionKeys.map((key, index) => ({
+                    title: sectionTitles[index],
+                    body: Array.isArray(breakdownSource[key])
+                        ? breakdownSource[key]
+                        : [breakdownSource[key]],
+                }))
+                : Array.isArray(projectData.process)
+                    ? (() => {
+                        const processItems = projectData.process
+                            .map((item) => String(item || "").trim())
+                            .filter(Boolean);
 
-        if (processBodyEl) {
-            processBodyEl.innerHTML = "";
+                        if (processItems.length === 0) {
+                            return [];
+                        }
 
-            if (processItems.length === 0) {
+                        const chunkSize = Math.ceil(processItems.length / sectionTitles.length);
+
+                        return sectionTitles.map((title, index) => ({
+                            title,
+                            body: processItems.slice(index * chunkSize, (index + 1) * chunkSize),
+                        })).filter((item) => item.body.length > 0);
+                    })()
+                    : [];
+
+        if (breakdownBodyEl) {
+            breakdownBodyEl.innerHTML = "";
+
+            const normalizedBreakdown = breakdownItems
+                .map((item, index) => {
+                    if (typeof item === "string") {
+                        return {
+                            title: sectionTitles[index] || `Part ${index + 1}`,
+                            body: [item],
+                        };
+                    }
+
+                    return {
+                        title: String(item?.title || sectionTitles[index] || `Part ${index + 1}`).trim(),
+                        body: Array.isArray(item?.body)
+                            ? item.body.map((paragraph) => String(paragraph || "").trim()).filter(Boolean)
+                            : [String(item?.body || "").trim()].filter(Boolean),
+                    };
+                })
+                .filter((item) => item.title || item.body.length > 0);
+
+            if (normalizedBreakdown.length === 0) {
                 const fallback = document.createElement("p");
-                fallback.className = "project-overlay-process-text";
-                fallback.textContent =
-                    "This project was developed through iterative concepting, visual exploration, and implementation sprints.";
-                processBodyEl.appendChild(fallback);
+                fallback.className = "project-overlay-breakdown-text";
+                fallback.textContent = "This project was developed through iterative concepting, visual exploration, and implementation sprints.";
+                breakdownBodyEl.appendChild(fallback);
             } else {
-                processItems.forEach((paragraph) => {
-                    const paragraphEl = document.createElement("p");
-                    paragraphEl.className = "project-overlay-process-text";
-                    paragraphEl.textContent = paragraph;
-                    processBodyEl.appendChild(paragraphEl);
+                normalizedBreakdown.forEach((sectionItem) => {
+                    const section = document.createElement("section");
+                    section.className = "project-overlay-breakdown-item";
+
+                    const titleEl = document.createElement("p");
+                    titleEl.className = "project-overlay-breakdown-title";
+                    titleEl.textContent = sectionItem.title;
+
+                    const bodyEl = document.createElement("div");
+                    bodyEl.className = "project-overlay-breakdown-texts";
+
+                    sectionItem.body.forEach((paragraph) => {
+                        const paragraphEl = document.createElement("p");
+                        paragraphEl.className = "project-overlay-breakdown-text";
+                        paragraphEl.textContent = paragraph;
+                        bodyEl.appendChild(paragraphEl);
+                    });
+
+                    section.appendChild(titleEl);
+                    section.appendChild(bodyEl);
+                    breakdownBodyEl.appendChild(section);
                 });
             }
         }
-        if (processSectionEl) {
-            processSectionEl.style.display = "block";
+        if (breakdownSectionEl) {
+            breakdownSectionEl.style.display = "block";
         }
 
         const contributors = Array.isArray(projectData.contributors) ? projectData.contributors : [];

@@ -43,7 +43,9 @@
             return slogan;
         }
 
-        const description = String(projectData?.description || "").trim();
+        const description = Array.isArray(projectData?.description)
+            ? projectData.description.map((item) => String(item || "").trim()).filter(Boolean).join(" ")
+            : String(projectData?.description || "").trim();
         if (!description) {
             return "Selected project case";
         }

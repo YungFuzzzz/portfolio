@@ -245,6 +245,14 @@
     color: var(--ink-84);
 }
 
+.project-overlay-read-description p {
+    margin: 0 0 1rem;
+}
+
+.project-overlay-read-description p:last-child {
+    margin-bottom: 0;
+}
+
 .project-overlay-meta {
     margin-top: 2.4rem;
     border-top: 1px solid var(--border-soft);
@@ -275,18 +283,47 @@
     transition: background-color 90ms linear, color 90ms linear;
 }
 
-.project-overlay-process,
+.project-overlay-breakdown,
 .project-overlay-contributors {
     margin-top: 2.8rem;
 }
 
-.project-overlay-process-body {
+.project-overlay-breakdown-body {
     margin-top: 1rem;
     display: grid;
-    gap: 1.2rem;
+    gap: 1.6rem;
 }
 
-.project-overlay-process-text {
+.project-overlay-breakdown-item {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.project-overlay-breakdown-title {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.project-overlay-breakdown-title::before {
+    content: "";
+    width: 0.56rem;
+    height: 0.56rem;
+    background: var(--accent);
+    display: inline-block;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+.project-overlay-breakdown-texts {
+    display: grid;
+    gap: 1rem;
+}
+
+.project-overlay-breakdown-text,
+.project-overlay-breakdown-fallback {
     margin: 0;
     font-size: 0.96rem;
     line-height: 1.5;

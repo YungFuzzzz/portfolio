@@ -6,24 +6,32 @@ const projectsData = [
         slogan: "Discover cities through authentic voices",
         image: "./assets/img/work/unveil.webp",
         fullImage: "./assets/img/work/unveil_fullscreen.webp",
-        description:
-            "Unveil is a mobile application that allows users to discover cities through audio-based storytelling. The app enables local residents to record and share audio fragments about places that are meaningful to them, while visitors can listen to these stories as they explore the city. Users are free to choose how they navigate the experience by selecting individual audio spots directly from an interactive map or by following curated tours that guide them through multiple locations. By combining location-based audio with personal narratives, Unveil adds an authentic and human layer to urban exploration and creates a stronger connection between people and the city.",
+        description: [
+            "Unveil is a mobile storytelling app that lets users explore cities through location-based audio stories shared by locals.",
+            "Residents record personal stories tied to specific places, while visitors discover them on an interactive map or through curated walking tours.",
+            "The platform combines branding, UX design, and technical development to create an engaging experience that connects people with the authentic narratives of a city. The result is a more emotional and human way of experiencing urban spaces through sound, movement, and narrative."
+        ],
         categories: ["design", "development", "concepts"],
         role: "Branding, UX Research, UI Design, Development",
         year: "2025",
-        technology: "Figma, React, Next.js, Firebase, MongoDB, Expo, Node.js",
-        process: [
-            "Unveil is developed as our bachelor project, where we set out to create a concept that brings together all of our skills as a team. The goal is to build something meaningful, engaging, and technically solid.",
-            "After exploring different directions, we land on the idea of audio tours, allowing local residents of Mechelen to share their knowledge and stories with visitors. This approach creates a more personal and authentic way to experience the city, shaped by the voices of the people who live there.",
-            "We start with the branding. The name Unveil reflects the idea of revealing hidden stories and perspectives. This concept is embedded in the visual identity, where the logo subtly references a curtain being pulled back, symbolizing discovery.",
-            "Following the branding phase, the project moves into development. We introduce a system of soundspots, where recordings are tied to specific locations. Contributors are asked to record their stories on-site, adding context and authenticity to the experience.",
-            "These recordings are linked to geolocation data and displayed on an interactive map. Users are encouraged to physically move through the city to unlock and listen to stories, creating an experience similar to location-based apps like Pokémon Go, but focused on culture and storytelling.",
-            "In addition to individual soundspots, users can follow curated tours, turning the platform into a guided walking experience. The app is designed as a paid service, offering day passes, weekly passes, or unlimited access. Individual tours can also be purchased separately.",
-            "From a technical perspective, the project pushes us to learn new tools and work around software limitations. The platform uses two separate databases: one for user authentication and account management, and another for storing and managing audio files.",
-            "Moderation plays an important role in maintaining quality and safety. An algorithm is implemented to detect and filter spam and inappropriate language, ensuring a respectful environment for both listeners and contributors.",
-            "Throughout the project, a strong focus is placed on user experience. Both the listener and the contributor flows are carefully designed to be intuitive, accessible, and engaging.",
-            "While the project is developed around the city of Mechelen, the concept is built to scale. Unveil has the potential to be implemented in cities worldwide, transforming the way people discover urban environments through local narratives."
-        ],
+        breakdown: {
+            concept: [
+                "Unveil is a mobile storytelling platform that connects people to cities through location-based audio experiences.",
+                "The project explores how urban environments can be experienced through personal narratives shared by locals, turning everyday places into meaningful story points."
+            ],
+            how: [
+                "The experience is built around “soundspots” — geolocated audio fragments recorded on-site by residents. This ensures authenticity and creates a direct link between story and location.",
+                "Users can explore the city freely through an interactive map or follow curated walking tours designed as guided experiences.",
+                "The app encourages physical movement through space, blending digital interaction with real-world exploration."
+            ],
+            what: [
+                "Unveil includes an interactive map-based exploration system, user-generated audio storytelling through soundspots, and curated walking tours that guide users through the city in different ways. The platform also features a dual database system for authentication and content management, along with an audio upload and storage infrastructure. A moderation system is implemented to filter spam and inappropriate content, ensuring a safe and high-quality experience. Overall, the platform combines UX design, branding, and technical development into one cohesive experience."
+            ],
+            result: [
+                "Unveil transforms city exploration into an immersive storytelling experience, blending local voices with digital mapping.",
+                "The concept demonstrates how location-based audio can create emotional connections to urban spaces and is designed to scale across multiple cities."
+            ],
+        },
         contributors: [
             {
                 name: "Wail Chebbai",
@@ -50,20 +58,36 @@ const projectsData = [
         slogan: "3D Shoe Configurator for Swear London",
         image: "./assets/img/work/swear.webp",
         fullImage: "./assets/img/work/swear_fullscreen.webp",
-        description: "The Swear 3D Shoe Configurator is an interactive web experience developed for Flux in collaboration with Swear London. The project involved creating a fully customizable shoe configurator using Three.js, allowing users to design their own shoes and place orders directly within the experience. In addition to the configurator, a backend management panel was developed to receive and process orders so the shoes could be produced accordingly. The visual direction closely followed Swear’s bold branding and rebellious attitude, with the interface and overall experience inspired by a nostalgic PlayStation 1 and 2 era aesthetic.",
+        description: [
+            "The Swear 3D Shoe Configurator is an interactive web experience developed for Flux in collaboration with Swear London. The project involved creating a fully customizable shoe configurator using Three.js, allowing users to design their own shoes and place orders directly within the experience.",
+            "In addition to the configurator, a backend management panel was developed to receive and process orders so the shoes could be produced accordingly. The visual direction closely followed Swear’s bold branding and rebellious attitude, with the interface and overall experience inspired by a nostalgic PlayStation 1 and 2 era aesthetic."
+        ],
         categories: ["design", "development"],
         role: "UI Design, Modeling, Texturing, World Building, Performance Optimization, Full Stack Development",
         year: "2025",
-        technology: "Three.js, Blender, Affinity Designer, VUE, Node.js",
-        process: [
-            "Swear is developed in collaboration with the British footwear brand Swear London, following a brief provided by Flux. The goal is to create a 3D shoe configurator that aligns closely with the brand’s identity, supporting the launch of a customizable shoe.",
-            "We begin with concept exploration, quickly gravitating towards a visual direction inspired by PS1 and PS2-era graphics, combined with the underground streetwear and grunge aesthetic that defines Swear. This direction allows us to create something nostalgic yet raw, perfectly matching the brand’s tone.",
-            "From there, we move into 3D production. Using Blender, we build a stylized city environment that acts as the backdrop for the configurator, fully embracing and translating Swear’s visual language into a digital space.",
-            "Alongside the visual experience, we develop a fully functional configurator that allows users to customize every aspect of the shoe. Materials, colors, and individual components can be adjusted in real time, creating a highly interactive and personal experience.",
-            "On the technical side, the project includes a complete backend system. Orders created through the configurator are processed using a Vue-based platform, where each customization is captured in detail.",
-            "We also design and build a dedicated management platform for Swear, allowing them to review incoming orders, accept requests, and track progress from production to delivery. This creates a seamless workflow between the user-facing experience and the brand’s internal operations.",
-            "Throughout the project, the focus remains on creating a cohesive experience where visual identity, interaction, and functionality come together. The result is a configurator that not only reflects Swear’s aesthetic, but also supports a scalable and practical ordering system."
-        ],
+        breakdown: {
+            concept: [
+                "Swear is a 3D shoe configurator developed in collaboration with Swear London, based on a brief provided by Flux.",
+                "The project explores how a luxury streetwear brand can translate its identity into an interactive digital product for customization and ordering."
+            ],
+
+            how: [
+                "The project starts with visual research and concept exploration, defining a direction inspired by PS1/PS2-era aesthetics combined with underground streetwear and grunge influences that reflect Swear’s identity.",
+                "We then build a stylized 3D environment in Blender, designed as a digital world that supports the configurator and reinforces the brand’s visual language.",
+                "The user experience is designed around real-time customization, allowing users to modify materials, colors, and individual shoe components directly within the interface."
+            ],
+
+            what: [
+                "The project includes a fully functional 3D configurator with real-time customization of shoe elements such as materials, colors, and components.",
+                "On the technical side, orders generated in the configurator are processed through a Vue-based system that captures and structures customization data.",
+                "A dedicated management platform is also developed for Swear, allowing internal teams to review, approve, and track orders from creation to production and delivery."
+            ],
+
+            result: [
+                "The result is a cohesive digital experience where branding, interaction, and product configuration come together in one system.",
+                "The configurator translates Swear’s visual identity into an interactive environment while supporting a scalable and production-ready ordering workflow."
+            ],
+        },
         contributors: [
             {
                 name: "Sam Apers",
@@ -87,19 +111,35 @@ const projectsData = [
         slogan: "Luxury fashion app",
         image: "./assets/img/work/garderobe.webp",
         fullImage: "./assets/img/work/garderobe_fullscreen.webp",
-        description: "React application integrated with CMS workflows for a fully working e-commerce platform.",
+        description: [
+            "React application integrated with CMS workflows for a fully working e-commerce platform."
+        ],
         categories: ["design", "development"],
         role: "Branding, UX/UI Design, Full-Stack Development, CMS Integration",
         year: "2025",
-        technology: "React, Webflow CMS, TypeScript, Figma, Affinity Designer",
-        process: [
-            "Garderobe is developed as a two-part project, combining a customer-facing application with a structured content platform.",
-            "The first part is a React-based application designed as a webshop for luxury fashion. The platform allows users to explore and purchase curated clothing pieces, creating a digital wardrobe experience reflected in the name Garderobe.",
-            "The app includes key e-commerce features such as a wishlist system, giving users the ability to save items for later, and an order overview where purchases can be tracked and managed. The focus is on delivering a clean and intuitive interface that reflects the premium nature of the products.",
-            "The second part of the project is a Webflow website, built to manage and present content. This platform is used to publish blog posts that keep users up to date with current fashion trends and seasonal releases.",
-            "All product data and editorial content are managed through the Webflow CMS. This setup demonstrates how a CMS can act as a central content hub, with data flowing directly into the React application to dynamically display products and content.",
-            "By combining both platforms, the project creates a seamless connection between content management and the shopping experience, resulting in a flexible and scalable system."
-        ],
+        breakdown: {
+            concept: [
+                "Garderobe is a two-part digital fashion project combining a customer-facing e-commerce experience with a structured content management platform.",
+                "The project explores how a luxury fashion experience can be translated into a digital wardrobe, allowing users to browse, curate, and purchase selected pieces."
+            ],
+
+            how: [
+                "The customer-facing application is built in React and designed as a luxury fashion webshop, focusing on a clean and premium user experience.",
+                "Core e-commerce features include product browsing, a wishlist system for saving items, and an order overview for tracking purchases.",
+                "The interface is designed to feel minimal and editorial, reinforcing the high-end positioning of the products."
+            ],
+
+            what: [
+                "In parallel, a Webflow-based CMS platform is developed to manage editorial content and product data.",
+                "This system is used to publish fashion-focused blog content, keeping users informed about trends and seasonal releases.",
+                "The CMS is connected to the React application, allowing content and product data to be dynamically synced and displayed across the platform."
+            ],
+
+            result: [
+                "The result is a connected ecosystem where content management and e-commerce are seamlessly integrated.",
+                "Garderobe demonstrates how a CMS-driven architecture can support both editorial storytelling and a scalable shopping experience."
+            ],
+        },
         contributors: [
         ],
         liveUrl: "",
@@ -114,20 +154,37 @@ const projectsData = [
         slogan: "For the ones that aren't able to go out",
         image: "./assets/img/work/sancus.webp",
         fullImage: "./assets/img/work/sancus_fullscreen.webp",
-        description: "Sancus is a government-focused platform designed to support individuals who are disconnected from society. It centralizes essential communication, encourages social reintegration through local events, and provides access to basic services such as food delivery, creating a more accessible, human-centered approach to public services.",
+        description: [
+            "Sancus is a government-focused platform designed to support individuals who are disconnected from society. It centralizes essential communication and encourages social reintegration through local events.",
+            "The platform also provides access to basic services such as food delivery, creating a more accessible, human-centered approach to public services."
+        ],
         categories: ["design", "concepts"],
         role: "Branding, UX Architecture, front-end development",
         year: "2024",
-        technology: " photoshop, illustrator, Figma, html, css, js",
-        process: [
-            "Sancus is developed as a government-focused platform centered around social security and accessibility. The goal is to support individuals who, for various reasons, are unable or unwilling to engage with society in a traditional way, ensuring they remain informed and connected.",
-            "The platform is designed as a central hub where all relevant government-related information is delivered directly to the user through a clear and structured inbox. This reduces complexity and makes essential communication more accessible.",
-            "Beyond information, Sancus actively encourages users to reconnect with society. A calendar feature highlights local social events, providing opportunities for gradual and comfortable participation within their own community.",
-            "To further support users in their daily lives, the platform also includes the option to purchase and schedule delivery of food packages, offering practical assistance alongside digital services.",
-            "A key part of the project is the branding. Unlike many traditional government platforms, Sancus is designed to feel approachable, open, and trustworthy. The visual identity focuses on clarity and warmth, creating a more human-centered experience and redefining expectations of public service platforms.",
-            "The project is developed as a website that brings all these features together into one cohesive experience. While the platform is no longer live, it demonstrates a complete system that combines accessibility, service design, and thoughtful user experience to support a vulnerable audience."
-        ],
-        contributors: [
+        breakdown: {
+            concept: [
+                "Sancus is a government-focused platform centered around social security, accessibility, and inclusion.",
+                "The project explores how public services can better support individuals who are less able or willing to engage with traditional systems, while keeping them informed and connected."
+            ],
+
+            how: [
+                "The platform is designed as a central information hub where government updates are delivered through a structured and accessible inbox system.",
+                "In addition to information delivery, Sancus encourages social reconnection through a calendar of local events, helping users gradually re-engage with their community in a low-pressure way.",
+                "The experience is designed to be clear and guided, reducing complexity and making essential services more approachable."
+            ],
+
+            what: [
+                "The platform also includes practical support features such as food package ordering and scheduled delivery, combining digital services with real-world assistance.",
+                "A key focus of the project is the branding and visual identity, designed to feel approachable, warm, and trustworthy rather than institutional.",
+                "The system is built as a unified web platform that brings together communication, services, and accessibility-focused features."
+            ],
+
+            result: [
+                "Sancus demonstrates a service design approach to government platforms, combining accessibility, communication, and practical support in one system.",
+                "Although the platform is no longer live, it represents a complete concept for a more human-centered public service experience."
+            ],
+        },
+                contributors: [
             {
                 name: "Matthew Aerts",
                 role: "Product Design, UX Architecture, Concept Development",
@@ -146,19 +203,36 @@ const projectsData = [
         slogan: "All mobility services in one place",
         image: "./assets/img/work/hoppin.webp",
         fullImage: "./assets/img/work/hoppin_fullscreen.webp",
-        description: "Hoppin is a mobility app redesign that reimagines Belgium’s existing combimobility platform. Starting from branding alone, the project focuses on creating a clear, user-friendly experience that brings all transport options together into one seamless and accessible system.",
+        description: [
+            "Hoppin is a mobility app redesign that reimagines Belgium’s existing combimobility platform.",
+            "Starting from branding alone, the project focuses on creating a clear, user-friendly experience that brings all transport options together into one seamless and accessible system."
+        ],
         categories: ["design", "branding"],
         role: "Visual Design, UI Design, UX Refinement, prototyping",
         year: "2023",
-        technology: "Figma",
-        process: [
-            "Hoppin is approached as a full redesign of an existing mobility platform that lacked clarity and usability. With only the existing branding as a starting point, the project focuses on rebuilding the entire app experience from the ground up.",
-            "The process begins in Figma, with a strong emphasis on UX and UI design. Initial work focuses on core flows such as onboarding, including login and signup, followed by user settings and preference management to tailor the experience to individual needs.",
-            "From there, the main application is developed around a central map interface. This map acts as the core of the platform, bringing together all available mobility options across Belgium into one unified view.",
-            "Users can plan routes with clear guidance and access all relevant information in one place, reducing the complexity of navigating different transport systems. The experience is designed to be intuitive, efficient, and easy to use in real-world scenarios.",
-            "Additional features include the integration of shared mobility services such as bike sharing and car sharing, further expanding the platform into a complete combimobility solution.",
-            "Throughout the project, the focus remains on simplifying mobility by creating a cohesive system where multiple transport options work together seamlessly within a single interface."
-        ],
+        breakdown: {
+            concept: [
+                "Hoppin is a full redesign of an existing mobility platform that suffered from limited clarity and usability.",
+                "Starting from the existing branding, the project focuses on rebuilding the entire user experience from the ground up with a strong UX foundation."
+            ],
+
+            how: [
+                "The design process starts in Figma, with a focus on restructuring core user flows such as onboarding, login, and account setup.",
+                "Additional attention is given to settings and preference management, allowing the experience to adapt to individual user needs.",
+                "The main interface is built around a central map system, which serves as the core navigation layer for all mobility services in Belgium."
+            ],
+
+            what: [
+                "The platform allows users to plan routes with clear guidance and access all relevant mobility information within a single interface.",
+                "Shared mobility services such as bike sharing and car sharing are integrated into the system, expanding it into a complete combimobility solution.",
+                "The result is a unified digital environment where multiple transport options are combined into one coherent system."
+            ],
+
+            result: [
+                "The final experience is intuitive, efficient, and designed for real-world use.",
+                "The project demonstrates how complex mobility systems can be simplified into a clear and accessible user experience."
+            ],
+        },
         contributors: [
             
         ],
@@ -174,20 +248,36 @@ const projectsData = [
         slogan: "Digital exhibitions for digital artists",
         image: "./assets/img/work/artex.webp",
         fullImage: "./assets/img/work/artex_fullscreen.webp",
-        description: "Artex is a conceptual platform for digital artists, designed to showcase and monetize work across mediums such as 3D, image, motion, and typography. The project explores how digital exhibitions can bridge the gap between traditional art and digital creation.",
+        description: [
+            "Artex is a conceptual platform for digital artists, designed to showcase and monetize work across mediums such as 3D, image, motion, and typography.",
+            "The project explores how digital exhibitions can bridge the gap between traditional art and digital creation."
+        ],
         categories: ["branding", "ui", "ux"],
         role: "Brand Design, UI/UX, prototyping",
         year: "2022",
-        technology: "Figma, Adobe Suite",
-        process: [
-            "Artex is developed as a branding-focused project centered around creative exploration and visual identity. The goal is to design a platform concept that elevates digital art and positions it within a more traditional exhibition context.",
-            "The idea behind Artex is to reduce the gap between physical and digital art by creating a space where digital artists can exhibit their work, participate in curated exhibitions, and generate income through their creations.",
-            "The process begins with the branding. The name Artex is derived from “art” and “exhibition,” reflecting the core concept of the platform. The visual identity is designed to be both strong and neutral, allowing it to adapt to a wide range of artistic styles.",
-            "A key element of the logo is its typographic construction. Each character is sourced from a different typeface, expressing the diversity and versatility of digital art across multiple disciplines.",
-            "With full creative freedom, the project focuses on building a flexible identity system that can support various forms of digital expression without overpowering the work itself.",
-            "In addition to the branding, a full application prototype is developed in Figma. The prototype explores both user and artist flows, allowing users to discover exhibitions and artworks, while giving artists the ability to participate in and contribute to digital exhibitions.",
-            "Although the platform is not developed beyond the conceptual stage, the project demonstrates a complete vision that combines branding, interaction design, and digital experience into a cohesive system."
-        ],
+        breakdown: {
+            concept: [
+                "Artex is a branding and platform concept focused on creative exploration and digital art.",
+                "The project aims to bridge the gap between digital and physical art by creating a space where digital artists can exhibit work, participate in curated exhibitions, and generate income through their creations."
+            ],
+
+            how: [
+                "The project starts with the development of the brand identity, with the name Artex derived from “art” and “exhibition,” reflecting the core purpose of the platform.",
+                "The visual identity is designed to be flexible and neutral, allowing it to support a wide range of artistic styles without overpowering the work itself.",
+                "The logo system is built using a typographic approach where each character is sourced from a different typeface, representing the diversity of digital artistic expression."
+            ],
+
+            what: [
+                "A complete Figma prototype is developed, exploring both user and artist flows.",
+                "Users can discover exhibitions and artworks, while artists can upload, manage, and showcase their work within curated digital exhibitions.",
+                "The system is designed as a scalable platform concept that supports both discovery and creation within the same environment."
+            ],
+
+            result: [
+                "The project remains conceptual but presents a complete vision that combines branding, interaction design, and platform thinking into one cohesive system.",
+                "Artex demonstrates how digital art platforms can be structured around both curation and creator participation."
+            ],
+        },
         contributors: [
             
         ],

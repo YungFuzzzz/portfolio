@@ -12,17 +12,16 @@ if (!canvas) {
     } else {
         const skillsData = [
             { title: "BRANDING" },
-            { title: "UI/UX DESIGN" },
-            { title: "WEB DESIGN" },
-            { title: "FRONTEND DEVELOPMENT" },
-            { title: "THREE.JS" },
-            { title: "3D DESIGN" },
-            { title: "PROTOTYPING" },
-            { title: "INTERACTION DESIGN" },
-            { title: "CREATIVE DIRECTION" },
-            { title: "MOTION" },
+            { title: "VISUAL IDENTITY" },
+            { title: "UI DESIGN" },
+            { title: "DIGITAL DESIGN" },
             { title: "GRAPHIC DESIGN" },
-            { title: "AI" }
+            { title: "TYPOGRAPHY" },
+            { title: "ART DIRECTION" },
+            { title: "INTERACTION DESIGN" },
+            { title: "PROTOTYPING" },
+            { title: "CREATIVE DIRECTION" },
+            { title: "MOTION DESIGN" }
         ];
 
         const BASE_VIEWPORT_HEIGHT = 640;
