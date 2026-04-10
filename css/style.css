@@ -282,7 +282,7 @@ body {
 
 .hero-side-copy {
     width: 100%;
-    font-size: clamp(1rem, 1.55vw, 1.64rem);
+    font-size: clamp(1rem, 1.55vw, 1.16rem);
     line-height: 1.42;
     letter-spacing: 0.01em;
     font-weight: 600;
