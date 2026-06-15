@@ -58,7 +58,76 @@
         maxCell: isChrome ? 4 : 3,
     };
     const container = canvas.parentElement;
-    const ditherColor = { r: 1, g: 1, b: 1 };
+
+    const parseCssColor = (value) => {
+        const color = value.trim();
+
+        const hexMatch = color.match(/^#([0-9a-f]{3,8})$/i);
+        if (hexMatch) {
+            const hex = hexMatch[1];
+
+            if (hex.length === 3) {
+                return {
+                    r: parseInt(hex[0] + hex[0], 16),
+                    g: parseInt(hex[1] + hex[1], 16),
+                    b: parseInt(hex[2] + hex[2], 16),
+                };
+            }
+
+            if (hex.length >= 6) {
+                return {
+                    r: parseInt(hex.slice(0, 2), 16),
+                    g: parseInt(hex.slice(2, 4), 16),
+                    b: parseInt(hex.slice(4, 6), 16),
+                };
+            }
+        }
+
+        const rgbMatch = color.match(/^rgba?\(([^)]+)\)$/i);
+        if (rgbMatch) {
+            const [r, g, b] = rgbMatch[1]
+                .split(",")
+                .slice(0, 3)
+                .map((component) => Number.parseFloat(component.trim()));
+
+            if ([r, g, b].every(Number.isFinite)) {
+                return {
+                    r: Math.round(r),
+                    g: Math.round(g),
+                    b: Math.round(b),
+                };
+            }
+        }
+
+        return null;
+    };
+
+    const readBackgroundColor = () => {
+        const rootStyles = getComputedStyle(document.documentElement);
+        const backgroundValue = rootStyles.getPropertyValue("--bg").trim();
+        const bodyBackgroundValue = getComputedStyle(document.body).backgroundColor;
+
+        return (
+            parseCssColor(backgroundValue) ||
+            parseCssColor(bodyBackgroundValue) ||
+            { r: 248, g: 249, b: 250 }
+        );
+    };
+
+    const readForegroundColor = () => {
+        const rootStyles = getComputedStyle(document.documentElement);
+        const textValue = rootStyles.getPropertyValue("--text").trim();
+        const bodyTextValue = getComputedStyle(document.body).color;
+
+        return (
+            parseCssColor(textValue) ||
+            parseCssColor(bodyTextValue) ||
+            { r: 0, g: 0, b: 0 }
+        );
+    };
+
+    const backgroundColor = readBackgroundColor();
+    const ditherColor = readForegroundColor();
 
     const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
@@ -172,8 +241,13 @@
         }
 
         updateWaveRows(tSeconds);
-        
-        pixels.fill(200);
+
+        for (let i = 0; i < pixels.length; i += 4) {
+            pixels[i] = backgroundColor.r;
+            pixels[i + 1] = backgroundColor.g;
+            pixels[i + 2] = backgroundColor.b;
+            pixels[i + 3] = 255;
+        }
 
         const upperDepthRows = Math.max(12, Math.round(rows * quality.upperDepthFactor));
         const lowerDepthRows = Math.max(14, Math.round(rows * quality.lowerDepthFactor));
@@ -210,9 +284,9 @@
 
                 const jitter = ((x + y) % 2) * 0.08;
                 const alpha = clamp(0.28 + edgeFade * 0.7 - jitter, 0, 0.95);
-                const r = Math.round(255 + (ditherColor.r - 255) * alpha);
-                const g = Math.round(255 + (ditherColor.g - 255) * alpha);
-                const b = Math.round(255 + (ditherColor.b - 255) * alpha);
+                const r = Math.round(backgroundColor.r + (ditherColor.r - backgroundColor.r) * alpha);
+                const g = Math.round(backgroundColor.g + (ditherColor.g - backgroundColor.g) * alpha);
+                const b = Math.round(backgroundColor.b + (ditherColor.b - backgroundColor.b) * alpha);
                 writeCell(x, y, r, g, b);
             }
 
