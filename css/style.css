@@ -467,7 +467,7 @@
 
             .page-overlay {
                 position: fixed;
-                padding: 0;
+                padding: 0 16px;
                 padding-bottom: calc(80px + env(safe-area-inset-bottom));
                 overflow-y: auto;
             }
@@ -480,6 +480,8 @@
                 display: grid !important;
                 width: 48px !important;
                 height: 48px !important;
+                z-index: 4;
+                pointer-events: auto;
                 transform: translateX(-50%);
             }
 
@@ -503,9 +505,10 @@
 
             .page-overlay__logo {
                 display: block;
-                width: 100vw !important;
+                width: calc(100% + 32px) !important;
                 max-width: none !important;
                 margin: 0 0 48px;
+                margin-left: -16px;
             }
 
             .page-overlay__intro {
@@ -535,6 +538,10 @@
                 border-radius: 0;
                 text-align: center;
                 text-decoration: none;
+            }
+
+            .page-overlay__home .page-overlay__links a {
+                text-transform: capitalize;
             }
 
             .page-overlay__home .page-overlay__links a:hover,
