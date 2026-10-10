@@ -3,7 +3,6 @@
         const lightboxStage = document.querySelector(".lightbox-stage");
         const lightboxImage = document.querySelector(".lightbox-image");
         const lightboxVideo = document.querySelector(".lightbox-video");
-        const lightboxModel = document.querySelector(".lightbox-model");
         const closeButton = document.querySelector(".lightbox-close");
         const previousButton = document.querySelector(".lightbox-prev");
         const nextButton = document.querySelector(".lightbox-next");
@@ -139,18 +138,6 @@
             mobileMenuButton.addEventListener("click", openMobileMenu);
         }
 
-        function getLightboxImageRect() {
-            const width = lightboxImage.getBoundingClientRect().width;
-            const height = lightboxImage.getBoundingClientRect().height;
-
-            return {
-                left: (window.innerWidth - width) / 2,
-                top: (window.innerHeight - height) / 2,
-                width,
-                height
-            };
-        }
-
         function getMediaType(item) {
             return item.dataset.mediaType || "image";
         }
@@ -164,7 +151,6 @@
         function hideLightboxMedia() {
             lightboxImage.hidden = true;
             lightboxVideo.hidden = true;
-            lightboxModel.hidden = true;
             stopVideo();
         }
 
@@ -196,19 +182,6 @@
                 lightboxVideo.poster = video.poster;
                 lightboxVideo.hidden = false;
                 lightboxVideo.play().catch(() => {});
-                return;
-            }
-
-            if (type === "model") {
-                const model = item.querySelector("model-viewer");
-                if (!model || !model.src) {
-                    throw new Error("A model media item must contain a model-viewer with a src.");
-                }
-
-                lightboxModel.src = model.src;
-                lightboxModel.poster = model.poster;
-                lightboxModel.alt = model.alt || "";
-                lightboxModel.hidden = false;
                 return;
             }
 
@@ -322,7 +295,7 @@
         });
 
         lightboxStage.addEventListener("pointerdown", (event) => {
-            if (!event.isPrimary || event.button !== 0 || activeMediaType === "model") {
+            if (!event.isPrimary || event.button !== 0) {
                 return;
             }
 

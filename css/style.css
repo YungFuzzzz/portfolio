@@ -184,18 +184,12 @@
         }
 
         .work figure img,
-        .work figure video,
-        .work figure model-viewer {
+        .work figure video {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
             filter: grayscale(1);
-        }
-
-        .work figure model-viewer {
-            pointer-events: none;
-            cursor: default;
         }
 
         .page-overlay {
@@ -308,8 +302,7 @@
         }
 
         .lightbox-image,
-        .lightbox-video,
-        .lightbox-model {
+        .lightbox-video {
             position: absolute;
             inset: 0;
             display: block;
@@ -328,13 +321,8 @@
             display: none !important;
         }
 
-        .lightbox-model {
-            background: transparent;
-        }
-
         .lightbox.is-open .lightbox-image:not([hidden]),
-        .lightbox.is-open .lightbox-video:not([hidden]),
-        .lightbox.is-open .lightbox-model:not([hidden]) {
+        .lightbox.is-open .lightbox-video:not([hidden]) {
             opacity: 1;
             transform: scale(1);
         }
