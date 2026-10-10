@@ -160,6 +160,7 @@
         }
 
         .work figure {
+            position: relative;
             margin: 0;
             aspect-ratio: 3 / 2;
         }
@@ -174,6 +175,7 @@
 
         .work button {
             display: block;
+            position: relative;
             width: 100%;
             height: 100%;
             padding: 0;
@@ -190,6 +192,32 @@
             height: 100%;
             object-fit: cover;
             filter: grayscale(1);
+        }
+
+        .work figure video,
+        .work figure .video-preview {
+            position: absolute;
+            inset: 0;
+        }
+
+        .work figure video {
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 350ms ease;
+        }
+
+        .work figure .video-preview {
+            z-index: 2;
+            pointer-events: none;
+            transition: opacity 350ms ease;
+        }
+
+        .work figure.video-playing video {
+            opacity: 1;
+        }
+
+        .work figure.video-playing .video-preview {
+            opacity: 0;
         }
 
         .page-overlay {
@@ -223,6 +251,10 @@
             font: inherit;
             font-size: 30px;
             cursor: pointer;
+        }
+
+        .work .page-overlay__close {
+            position: fixed;
         }
 
         .page-overlay__content {
@@ -575,7 +607,9 @@
         @media (prefers-reduced-motion: reduce) {
             a,
             .lightbox,
-            .lightbox-image {
+            .lightbox-image,
+            .work figure video,
+            .work figure .video-preview {
                 transition: none;
             }
         }

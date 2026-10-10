@@ -19,7 +19,7 @@
     <title>Faisal Collinet</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 </head>
 <body>
     <main>
@@ -52,9 +52,10 @@
             </figure>
             <figure data-media-type="video">
                 <button type="button" aria-label="Open video 2">
-                    <video muted autoplay loop playsinline preload="metadata">
-                        <source src="assets/vids/1.mp4" type="video/mp4">
+                    <video muted autoplay loop playsinline preload="none" data-video-src="assets/vids/1.mp4">
+                        <source data-src="assets/vids/1.mp4" type="video/mp4">
                     </video>
+                    <img class="video-preview" src="assets/img/1.webp" alt="" aria-hidden="true">
                 </button>
             </figure>
             <figure data-media-type="image">
@@ -64,9 +65,10 @@
             </figure>
             <figure data-media-type="video">
                 <button type="button" aria-label="Open video 4">
-                    <video muted autoplay loop playsinline preload="metadata">
-                        <source src="assets/vids/2.mp4" type="video/mp4">
+                    <video muted autoplay loop playsinline preload="none" data-video-src="assets/vids/2.mp4">
+                        <source data-src="assets/vids/2.mp4" type="video/mp4">
                     </video>
+                    <img class="video-preview" src="assets/img/2.webp" alt="" aria-hidden="true">
                 </button>
             </figure>
             <figure data-media-type="image">
@@ -76,9 +78,10 @@
             </figure>
             <figure data-media-type="video">
                 <button type="button" aria-label="Open video 6">
-                    <video muted autoplay loop playsinline preload="metadata">
-                        <source src="assets/vids/3.mp4" type="video/mp4">
+                    <video muted autoplay loop playsinline preload="none" data-video-src="assets/vids/3.mp4">
+                        <source data-src="assets/vids/3.mp4" type="video/mp4">
                     </video>
+                    <img class="video-preview" src="assets/img/3.webp" alt="" aria-hidden="true">
                 </button>
             </figure>
             <figure data-media-type="image">
@@ -88,9 +91,10 @@
             </figure>
             <figure data-media-type="video">
                 <button type="button" aria-label="Open video 8">
-                    <video muted autoplay loop playsinline preload="metadata">
-                        <source src="assets/vids/1.mp4" type="video/mp4">
+                    <video muted autoplay loop playsinline preload="none" data-video-src="assets/vids/1.mp4">
+                        <source data-src="assets/vids/1.mp4" type="video/mp4">
                     </video>
+                    <img class="video-preview" src="assets/img/1.webp" alt="" aria-hidden="true">
                 </button>
             </figure>
             <figure data-media-type="image">
@@ -100,9 +104,10 @@
             </figure>
             <figure data-media-type="video">
                 <button type="button" aria-label="Open video 10">
-                    <video muted autoplay loop playsinline preload="metadata">
-                        <source src="assets/vids/2.mp4" type="video/mp4">
+                    <video muted autoplay loop playsinline preload="none" data-video-src="assets/vids/2.mp4">
+                        <source data-src="assets/vids/2.mp4" type="video/mp4">
                     </video>
+                    <img class="video-preview" src="assets/img/2.webp" alt="" aria-hidden="true">
                 </button>
             </figure>
             <figure data-media-type="image">
@@ -112,9 +117,10 @@
             </figure>
             <figure data-media-type="video">
                 <button type="button" aria-label="Open video 12">
-                    <video muted autoplay loop playsinline preload="metadata">
-                        <source src="assets/vids/3.mp4" type="video/mp4">
+                    <video muted autoplay loop playsinline preload="none" data-video-src="assets/vids/3.mp4">
+                        <source data-src="assets/vids/3.mp4" type="video/mp4">
                     </video>
+                    <img class="video-preview" src="assets/img/3.webp" alt="" aria-hidden="true">
                 </button>
             </figure>
             <figure data-media-type="image">
@@ -124,9 +130,10 @@
             </figure>
             <figure data-media-type="video">
                 <button type="button" aria-label="Open video 14">
-                    <video muted autoplay loop playsinline preload="metadata">
-                        <source src="assets/vids/1.mp4" type="video/mp4">
+                    <video muted autoplay loop playsinline preload="none" data-video-src="assets/vids/1.mp4">
+                        <source data-src="assets/vids/1.mp4" type="video/mp4">
                     </video>
+                    <img class="video-preview" src="assets/img/1.webp" alt="" aria-hidden="true">
                 </button>
             </figure>
             <figure data-media-type="image">
@@ -136,9 +143,10 @@
             </figure>
             <figure data-media-type="video">
                 <button type="button" aria-label="Open video 16">
-                    <video muted autoplay loop playsinline preload="metadata">
-                        <source src="assets/vids/2.mp4" type="video/mp4">
+                    <video muted autoplay loop playsinline preload="none" data-video-src="assets/vids/2.mp4">
+                        <source data-src="assets/vids/2.mp4" type="video/mp4">
                     </video>
+                    <img class="video-preview" src="assets/img/2.webp" alt="" aria-hidden="true">
                 </button>
             </figure>
             <figure data-media-type="image">
@@ -148,9 +156,10 @@
             </figure>
             <figure data-media-type="video">
                 <button type="button" aria-label="Open video 18">
-                    <video muted autoplay loop playsinline preload="metadata">
-                        <source src="assets/vids/3.mp4" type="video/mp4">
+                    <video muted autoplay loop playsinline preload="none" data-video-src="assets/vids/3.mp4">
+                        <source data-src="assets/vids/3.mp4" type="video/mp4">
                     </video>
+                    <img class="video-preview" src="assets/img/3.webp" alt="" aria-hidden="true">
                 </button>
             </figure>
             <figure data-media-type="image">
@@ -160,9 +169,10 @@
             </figure>
             <figure data-media-type="video">
                 <button type="button" aria-label="Open video 20">
-                    <video muted autoplay loop playsinline preload="metadata">
-                        <source src="assets/vids/1.mp4" type="video/mp4">
+                    <video muted autoplay loop playsinline preload="none" data-video-src="assets/vids/1.mp4">
+                        <source data-src="assets/vids/1.mp4" type="video/mp4">
                     </video>
+                    <img class="video-preview" src="assets/img/1.webp" alt="" aria-hidden="true">
                 </button>
             </figure>
             <figure data-media-type="image">
@@ -172,9 +182,10 @@
             </figure>
             <figure data-media-type="video">
                 <button type="button" aria-label="Open video 22">
-                    <video muted autoplay loop playsinline preload="metadata">
-                        <source src="assets/vids/2.mp4" type="video/mp4">
+                    <video muted autoplay loop playsinline preload="none" data-video-src="assets/vids/2.mp4">
+                        <source data-src="assets/vids/2.mp4" type="video/mp4">
                     </video>
+                    <img class="video-preview" src="assets/img/2.webp" alt="" aria-hidden="true">
                 </button>
             </figure>
             <figure data-media-type="image">
@@ -184,9 +195,10 @@
             </figure>
             <figure data-media-type="video">
                 <button type="button" aria-label="Open video 24">
-                    <video muted autoplay loop playsinline preload="metadata">
-                        <source src="assets/vids/3.mp4" type="video/mp4">
+                    <video muted autoplay loop playsinline preload="none" data-video-src="assets/vids/3.mp4">
+                        <source data-src="assets/vids/3.mp4" type="video/mp4">
                     </video>
+                    <img class="video-preview" src="assets/img/3.webp" alt="" aria-hidden="true">
                 </button>
             </figure>
 
