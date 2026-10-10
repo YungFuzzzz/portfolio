@@ -35,6 +35,11 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
         main {
             display: grid;
             grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
@@ -411,6 +416,9 @@
             main {
                 display: block;
                 height: 100vh;
+                height: 100dvh;
+                min-height: 0;
+                width: 100%;
             }
 
             .intro {
@@ -431,6 +439,7 @@
                 width: 100vw;
                 pointer-events: auto;
                 cursor: pointer;
+                touch-action: manipulation;
             }
 
             .mobile-menu-button .logo {
@@ -442,9 +451,18 @@
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 margin-top: 0;
                 height: calc(100vh - 73px);
+                height: calc(100dvh - 73px);
+                min-height: 0;
+                width: 100%;
                 overflow-y: auto;
                 touch-action: pan-y;
                 -webkit-overflow-scrolling: touch;
+            }
+
+            .work button,
+            .page-overlay a,
+            .page-overlay__close {
+                touch-action: manipulation;
             }
 
             .page-overlay {
