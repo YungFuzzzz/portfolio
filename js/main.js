@@ -113,16 +113,24 @@
 
         pageCloseButton.addEventListener("click", closePage);
         pageOverlay.addEventListener("click", (event) => {
+            event.stopPropagation();
+
             if (event.target === pageOverlay) {
                 closePage();
             }
         });
+        mobileMenuButton.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });
         document.addEventListener("click", (event) => {
+            const target = event.target instanceof Element ? event.target : null;
+
             if (
                 pageOverlay.classList.contains("is-open") &&
-                !pageOverlay.contains(event.target) &&
-                !mobileMenuButton.contains(event.target) &&
-                !event.target.closest("[data-page]")
+                target &&
+                !pageOverlay.contains(target) &&
+                !mobileMenuButton.contains(target) &&
+                !target.closest("[data-page]")
             ) {
                 closePage();
             }
