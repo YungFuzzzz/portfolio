@@ -1,241 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Digital designer focused on branding, visual identity and UI. Creating bold, design-driven experiences.">
+    <meta name="description" content="Faisal Collinet - creative developer and designer.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Faisal Collinet">
+    <meta name="theme-color" content="#f1f2f2">
+    <link rel="canonical" href="https://yungfuzzzz.github.io/portfolio/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yungfuzzzz.github.io/portfolio/">
+    <meta property="og:title" content="Faisal Collinet — Designer and Creative">
+    <meta property="og:description" content="Faisal Collinet is a designer and creative based in Belgium.">
+    <meta property="og:image" content="https://yungfuzzzz.github.io/portfolio/assets/logo.svg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Faisal Collinet — Designer and Creative">
+    <meta name="twitter:description" content="Faisal Collinet is a designer and creative based in Belgium.">
     <title>Faisal Collinet</title>
-    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/loader.css">
-    <link rel="stylesheet" href="./css/nav.css">
-    <link rel="stylesheet" href="./css/carousel.css">
-    <link rel="stylesheet" href="./css/project-overlay.css">
-    <link rel="stylesheet" href="./css/work-list-overlay.css">
-    <link rel="stylesheet" href="./css/skills-carousel.css">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 </head>
 <body>
-    <div class="site-loader" id="siteLoader" aria-hidden="true">
-        <div class="loader-brand" aria-label="Loading">
-            <span class="loader-brand-layer loader-brand-base">
-                <img class="loader-brand-logo" src="./assets/img/nav-logo.svg" alt="" width="22" height="22" aria-hidden="true">
-                <span class="loader-brand-name">Faisal Collinet</span>
-            </span>
-            <span class="loader-brand-layer loader-brand-fill" aria-hidden="true">
-                <img class="loader-brand-logo" src="./assets/img/nav-logo.svg" alt="" width="22" height="22">
-                <span class="loader-brand-name">Faisal Collinet</span>
-            </span>
-        </div>
-        <div class="loader-progress-track" aria-hidden="true">
-            <span class="loader-progress-fill"></span>
-        </div>
-    </div>
-
-    <nav class="site-nav" aria-label="Primary">
-        <div class="nav-shell">
-            <a class="nav-brand" href="#work" aria-label="Home">
-                <img src="./assets/img/nav-logo.svg" alt="Faisal Collinet" width="22" height="22">
-                <span class="nav-brand-name">Faisal Collinet</span>
-            </a>
-
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navPanel" aria-label="Open menu">
-                <span class="nav-toggle-line"></span>
-                <span class="nav-toggle-line"></span>
+    <main>
+        <section class="intro" aria-labelledby="intro-title">
+            <button class="mobile-menu-button" type="button" aria-label="Open menu" aria-controls="page-overlay" aria-expanded="false">
+                <img class="logo" src="assets/wordmark.svg" alt="Faisal Collinet">
             </button>
-        </div>
 
-        <div class="nav-panel" id="navPanel" aria-hidden="true">
-            <div class="nav-panel-left">
-                <ul class="nav-menu" role="list">
-                    <li>
-                        <a class="nav-menu-link" href="#work-gallery">
-                            <span class="nav-menu-mask">
-                                <span class="nav-menu-roll">
-                                    <span>WORK</span>
-                                    <span>WORK</span>
-                                </span>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-menu-link" href="#about">
-                            <span class="nav-menu-mask">
-                                <span class="nav-menu-roll">
-                                    <span>ABOUT</span>
-                                    <span>ABOUT</span>
-                                </span>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-menu-link" href="#lab">
-                            <span class="nav-menu-mask">
-                                <span class="nav-menu-roll">
-                                    <span>LAB</span>
-                                    <span>LAB</span>
-                                </span>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
+            <div class="details">
+                <p>Designer and Creative currently based in Belgium.</p>
+                <p>Currently Creative Concepts @Belfius.</p>
+            </div>
 
-                <div class="nav-socials" aria-label="Social links">
-                    <a class="nav-social-link" href="https://www.instagram.com/faisal_collinet/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
-                    <a class="nav-social-link" href="https://www.linkedin.com/in/faisal-collinet-2251b5232/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+            <hr class="divider">
+
+            <ul class="page-links" aria-label="Pages">
+                <li><a href="#projects" data-page="projects">Projects</a></li>
+                <li><a href="#about" data-page="about">About</a></li>
+                <li><a href="#blog" data-page="blog">Blog</a></li>
+                <li><a href="#contact" data-page="contact">Contact</a></li>
+            </ul>
+
+        </section>
+
+        <section class="work" aria-label="Selected work">
+            <figure data-media-type="image">
+                <button type="button" aria-label="Open image 1">
+                    <img src="assets/img/img1.jpg" alt="Portfolio image 1" loading="lazy">
+                </button>
+            </figure>
+            <figure data-media-type="video">
+                <button type="button" aria-label="Open video 2">
+                    <video muted autoplay loop playsinline preload="metadata">
+                        <source src="assets/vids/video test.mp4" type="video/mp4">
+                    </video>
+                </button>
+            </figure>
+            <figure data-media-type="image">
+                <button type="button" aria-label="Open image 3">
+                    <img src="assets/img/img2.jpg" alt="Portfolio image 2" loading="lazy">
+                </button>
+            </figure>
+            <figure data-media-type="video">
+                <button type="button" aria-label="Open video 4">
+                    <video muted autoplay loop playsinline preload="metadata">
+                        <source src="assets/vids/video test.mp4" type="video/mp4">
+                    </video>
+                </button>
+            </figure>
+            <figure data-media-type="image">
+                <button type="button" aria-label="Open image 5">
+                    <img src="assets/img/img1.jpg" alt="Portfolio image 1" loading="lazy">
+                </button>
+            </figure>
+            <figure data-media-type="video">
+                <button type="button" aria-label="Open video 6">
+                    <video muted autoplay loop playsinline preload="metadata">
+                        <source src="assets/vids/video test.mp4" type="video/mp4">
+                    </video>
+                </button>
+            </figure>
+            <figure data-media-type="image">
+                <button type="button" aria-label="Open image 7">
+                    <img src="assets/img/img2.jpg" alt="Portfolio image 2" loading="lazy">
+                </button>
+            </figure>
+            <figure data-media-type="video">
+                <button type="button" aria-label="Open video 8">
+                    <video muted autoplay loop playsinline preload="metadata">
+                        <source src="assets/vids/video test.mp4" type="video/mp4">
+                    </video>
+                </button>
+            </figure>
+            <figure data-media-type="image">
+                <button type="button" aria-label="Open image 9">
+                    <img src="assets/img/img1.jpg" alt="Portfolio image 1" loading="lazy">
+                </button>
+            </figure>
+            <figure data-media-type="video">
+                <button type="button" aria-label="Open video 10">
+                    <video muted autoplay loop playsinline preload="metadata">
+                        <source src="assets/vids/video test.mp4" type="video/mp4">
+                    </video>
+                </button>
+            </figure>
+            <figure data-media-type="image">
+                <button type="button" aria-label="Open image 11">
+                    <img src="assets/img/img2.jpg" alt="Portfolio image 2" loading="lazy">
+                </button>
+            </figure>
+            <figure data-media-type="video">
+                <button type="button" aria-label="Open video 12">
+                    <video muted autoplay loop playsinline preload="metadata">
+                        <source src="assets/vids/video test.mp4" type="video/mp4">
+                    </video>
+                </button>
+            </figure>
+            <figure data-media-type="image">
+                <button type="button" aria-label="Open image 13">
+                    <img src="assets/img/img1.jpg" alt="Portfolio image 1" loading="lazy">
+                </button>
+            </figure>
+            <figure data-media-type="video">
+                <button type="button" aria-label="Open video 14">
+                    <video muted autoplay loop playsinline preload="metadata">
+                        <source src="assets/vids/video test.mp4" type="video/mp4">
+                    </video>
+                </button>
+            </figure>
+            <figure data-media-type="image">
+                <button type="button" aria-label="Open image 15">
+                    <img src="assets/img/img2.jpg" alt="Portfolio image 2" loading="lazy">
+                </button>
+            </figure>
+            <figure data-media-type="video">
+                <button type="button" aria-label="Open video 16">
+                    <video muted autoplay loop playsinline preload="metadata">
+                        <source src="assets/vids/video test.mp4" type="video/mp4">
+                    </video>
+                </button>
+            </figure>
+            <figure data-media-type="image">
+                <button type="button" aria-label="Open image 17">
+                    <img src="assets/img/img1.jpg" alt="Portfolio image 1" loading="lazy">
+                </button>
+            </figure>
+            <figure data-media-type="video">
+                <button type="button" aria-label="Open video 18">
+                    <video muted autoplay loop playsinline preload="metadata">
+                        <source src="assets/vids/video test.mp4" type="video/mp4">
+                    </video>
+                </button>
+            </figure>
+            <figure data-media-type="image">
+                <button type="button" aria-label="Open image 19">
+                    <img src="assets/img/img2.jpg" alt="Portfolio image 2" loading="lazy">
+                </button>
+            </figure>
+            <figure data-media-type="video">
+                <button type="button" aria-label="Open video 20">
+                    <video muted autoplay loop playsinline preload="metadata">
+                        <source src="assets/vids/video test.mp4" type="video/mp4">
+                    </video>
+                </button>
+            </figure>
+            <figure data-media-type="image">
+                <button type="button" aria-label="Open image 21">
+                    <img src="assets/img/img1.jpg" alt="Portfolio image 1" loading="lazy">
+                </button>
+            </figure>
+            <figure data-media-type="video">
+                <button type="button" aria-label="Open video 22">
+                    <video muted autoplay loop playsinline preload="metadata">
+                        <source src="assets/vids/video test.mp4" type="video/mp4">
+                    </video>
+                </button>
+            </figure>
+            <figure data-media-type="image">
+                <button type="button" aria-label="Open image 23">
+                    <img src="assets/img/img2.jpg" alt="Portfolio image 2" loading="lazy">
+                </button>
+            </figure>
+            <figure data-media-type="video">
+                <button type="button" aria-label="Open video 24">
+                    <video muted autoplay loop playsinline preload="metadata">
+                        <source src="assets/vids/video test.mp4" type="video/mp4">
+                    </video>
+                </button>
+            </figure>
+
+            <section class="page-overlay" aria-hidden="true">
+                <button class="page-overlay-close" type="button" aria-label="Close page">&times;</button>
+                <div class="mobile-menu-home">
+                    <img class="mobile-overlay-logo" src="assets/logo.svg" alt="Faisal Collinet">
+                    <p>Designer and Creative currently based in Belgium.</p>
+                    <p>Currently Creative Concepts @Belfius.</p>
+                    <ul class="page-links" aria-label="Pages">
+                        <li><a href="#projects" data-page="projects">projects</a></li>
+                        <li><a href="#about" data-page="about">about</a></li>
+                        <li><a href="#blog" data-page="blog">blog</a></li>
+                        <li><a href="#contact" data-page="contact">contact</a></li>
+                    </ul>
+                    <nav class="contact" aria-label="Contact">
+                        <a href="mailto:hello@faisalcollinet.com">hello@faisalcollinet.com</a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">@faisalcollinet</a>
+                    </nav>
                 </div>
-            </div>
-
-            <div class="nav-panel-right">
-                <img class="nav-panel-image" src="./assets/img/contact.webp" alt="Decorative navigation visual">
-                <a class="btn btn--accent nav-panel-cta" href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="page-content">
-        <section id="work" class="hero-block">
-            <div class="dither-container" aria-hidden="true">
-                <canvas id="ditherCanvas"></canvas>
-            </div>
-
-            <div class="hero-inner">
-                <p class="hero-kicker">Faisal Collinet</p>
-                <h1>BRANDING & VISUAL IDENTITY DESIGN</h1>
-            </div>
-
-            <div class="hero-side">
-                <p class="hero-side-copy">I’m a Belgium-based brand designer with a focus on visual identity systems for modern digital brands.</p>
-                <div class="hero-side-ctas">
-                    <a class="btn btn--accent hero-cta" href="#contact">Contact me</a>
-                    <a class="btn btn--alt hero-cta hero-cta-alt" href="#work-gallery">See my work</a>
-                </div>
-            </div>
+                <article class="page-content" data-page-content="about">
+                    <h2>Designing clear, considered digital experiences.</h2>
+                    <p>I am Faisal Collinet, a designer and creative based in Belgium. I work across identity, digital direction and interactive experiences.</p>
+                    <p>My approach is quiet, direct and focused on creating work that feels useful long after the first impression.</p>
+                </article>
+                <article class="page-content" data-page-content="blog">
+                    <h2>Notes on design, culture and making.</h2>
+                    <p>A small collection of observations, references and works in progress.</p>
+                    <p>New writing will appear here soon.</p>
+                </article>
+                <article class="page-content" data-page-content="contact">
+                    <h2>Let’s make something thoughtful.</h2>
+                    <p>For collaborations, commissions or just saying hello, get in touch.</p>
+                    <p><a href="mailto:hello@faisalcollinet.com">hello@faisalcollinet.com</a></p>
+                </article>
+            </section>
         </section>
 
-        <section id="work-gallery" class="work-section" aria-label="Work gallery">
-            <div class="work-carousel-stage">
-                <canvas id="carouselCanvas"></canvas>
-            </div>
-        </section>
-
-        <section class="work-list-cta-section" aria-label="See all work">
-            <button id="seeAllWorkBtn" class="btn btn--accent work-list-cta" type="button">See all work</button>
-        </section>
-
-        <section id="about" class="about-section" aria-label="About Faisal">
-            <div class="about-shell">
-                <h2 class="about-title">ABOUT FAISAL</h2>
-                <figure class="about-image-wrap">
-                    <img class="about-image" src="./assets/img/faisal.webp" alt="Portrait of Faisal Collinet" width="1200" height="1200" loading="lazy">
-                </figure>
-
-                <div class="about-copy" aria-label="About text">
-                    <p>I am Faisal Collinet, a brand and visual designer with a degree in Digital Experience Design. I focus on building identity systems that translate ideas into clear, structured and expressive visual directions.</p>
-                    <p>My work sits at the intersection of branding, visual systems and digital design, where I develop cohesive identities that work across interfaces and real-world applications.</p>
-                    <p>Influenced by abstract art, contemporary fashion and visual culture, I’m drawn to bold yet controlled design systems that balance expression with clarity. This approach allows me to create work that is both visually distinctive and functionally grounded.</p>
-                    <p>I aim to design with intention: shaping brands that feel considered, consistent and impactful across every touchpoint.</p>
-                </div>
-
-                <section class="skills-carousel-section" aria-label="Rotating skills carousel">
-                    <p class="skills-section-title">SKILLS</p>
-                    <div class="skills-carousel-stage">
-                        <canvas id="skillsCarouselCanvas"></canvas>
-                    </div>
-                </section>
-            </div>
-        </section>
-        <section id="lab" class="lab-section" aria-label="Lab">
-            <div class="lab-blob-field" aria-hidden="true"></div>
-            <div class="lab-shell">
-                <p class="lab-kicker">LAB</p>
-                <h2 class="lab-title">Experimental space for future ideas</h2>
-                <p class="lab-copy">A personal playground where I explore visuals across different mediums. From 3D and motion to print and digital experiments, this space is about pushing ideas, testing styles, and creating without constraints.</p>
-                <div class="lab-actions">
-                    <button class="btn btn--alt lab-cta" type="button" disabled>Coming soon</button>
-                </div>
-            </div>
-        </section>
-        <section id="contact" class="contact-section" aria-label="Contact">
-            <div class="contact-blob-field" aria-hidden="true"></div>
-            <div class="contact-shell">
-                <div class="contact-layout">
-                    <div class="contact-content">
-                        <div class="contact-head">
-                            <h2 class="contact-title">SAY HI</h2>
-                            <p class="contact-subtitle">Got a job opportunity, collaboration idea or just want to talk about something random? I’m all ears. You can find me on LinkedIn or Instagram to see what I’m up to and get a glimpse beyond the screen.</p>
-                        </div>
-
-                        <div class="contact-columns">
-                            <div class="contact-direct">
-                                <a class="contact-email-field" href="mailto:hello@faisalcollinet.com" aria-label="Send an email to hello@faisalcollinet.com">
-                                    <span class="contact-email-text">FAISALCOLLINET01@GMAIL.COM</span>
-                                </a>
-
-                                <div class="contact-direct-actions">
-                                    <a class="btn btn--accent contact-direct-cta" href="mailto:hello@faisalcollinet.com">Send an email</a>
-                                    <span class="contact-direct-or" aria-hidden="true">OR</span>
-                                    <a class="btn btn--accent contact-direct-cta" href="https://www.instagram.com/faisal_collinet/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                                    <a class="btn btn--accent contact-direct-cta" href="https://www.linkedin.com/in/faisal-collinet-2251b5232/" target="_blank" rel="noopener noreferrer">Linkedin</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <figure id="imageContainer" class="contact-media" aria-hidden="true">
-                        <img id="myImage" class="contact-image" src="./assets/img/contact_big.webp" alt="" loading="lazy" decoding="async">
-                    </figure>
-                </div>
-            </div>
-        </section>
+        <footer class="footer">
+            <nav class="contact" aria-label="Social links">
+                <a href="https://www.linkedin.com/in/faisal-collinet-2251b5232/" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
+            </nav>
+            <p>&copy; 2026 Faisal Collinet</p>
+        </footer>
     </main>
 
-    <footer class="site-footer" aria-label="Footer">
-        <div class="site-footer-inner">
-            <div class="site-footer-grid">
-                <nav class="site-footer-list" aria-label="Footer index">
-                    <p class="site-footer-list-title">Index</p>
-                    <a class="site-footer-link" href="#work">HOME</a>
-                    <a class="site-footer-link" href="#work-gallery">WORK</a>
-                    <a class="site-footer-link" href="#about">ABOUT</a>
-                    <a class="site-footer-link" href="#lab">LAB</a>
-                    <a class="site-footer-link" href="#contact">CONTACT</a>
-                </nav>
-
-                <div class="site-footer-list" aria-label="Footer social links">
-                    <p class="site-footer-list-title">Social</p>
-                    <a class="site-footer-link" href="https://www.linkedin.com/in/faisal-collinet-2251b5232/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
-                    <a class="site-footer-link" href="https://www.instagram.com/faisal_collinet/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
-                </div>
-
-                <address class="site-footer-list site-footer-contact" aria-label="Footer contact details">
-                    <p class="site-footer-list-title">Contact</p>
-                    <a class="site-footer-link" href="mailto:hello@faisalcollinet.com">EMAIL</a>
-                </address>
-            </div>
-
-            <div class="site-footer-meta">
-                <p class="site-footer-credit">Thank you to <a class="site-footer-credit-link" href="https://www.threesixtyone.studio/" target="_blank" rel="noopener noreferrer">threesixtyone</a> for the inspiration</p>
-                <span class="site-footer-note">&copy; 2026</span>
-                <a class="site-footer-link site-footer-link--muted site-footer-scroll" href="#work">Go to top</a>
-            </div>
+    <div class="lightbox" role="dialog" aria-modal="true" aria-label="Media viewer" aria-hidden="true">
+        <button class="lightbox-control lightbox-close" type="button" aria-label="Close image viewer">&times;</button>
+        <button class="lightbox-control lightbox-prev" type="button" aria-label="Previous image">&lsaquo;</button>
+        <div class="lightbox-stage">
+            <img class="lightbox-image" src="" alt="">
+            <video class="lightbox-video" playsinline muted preload="metadata"></video>
+            <model-viewer class="lightbox-model" camera-controls touch-action="pan-y" shadow-intensity="0"></model-viewer>
         </div>
-    </footer>
+        <button class="lightbox-control lightbox-next" type="button" aria-label="Next image">&rsaquo;</button>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
-    <script src="./js/loader.js" defer></script>
-    <script src="./js/dither.js" defer></script>
-    <script src="./js/nav.js" defer></script>
-    <script src="./js/about.js" defer></script>
-    <script src="./js/lab.js" defer></script>
-    <script src="./js/contact.js" defer></script>
-    <script src="./js/contact-image-effect.js" defer></script>
-    <script src="./js/lab-background.js" defer></script>
-    <script src="./js/footer-parallax.js" defer></script>
-    <script type="module" src="./js/skills-carousel.js" defer></script>
-    <script src="./js/project-overlay.js" defer></script>
-    <script src="./js/work-list-overlay.js" defer></script>
-    <script type="module" src="./js/work-carousel.js" defer></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
