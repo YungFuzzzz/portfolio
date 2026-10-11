@@ -10,6 +10,7 @@
         const lightboxStage = document.querySelector(".lightbox-stage");
         const lightboxImage = document.querySelector(".lightbox-image");
         const lightboxVideo = document.querySelector(".lightbox-video");
+        const lightboxCaption = document.querySelector(".lightbox-caption");
         const closeButton = document.querySelector(".lightbox-close");
         const previousButton = document.querySelector(".lightbox-prev");
         const nextButton = document.querySelector(".lightbox-next");
@@ -224,6 +225,36 @@
             stopVideo();
         }
 
+        function updateLightboxCaption(item) {
+            lightboxCaption.replaceChildren();
+            const caption = item.querySelector("figcaption");
+
+            if (caption) {
+                lightboxCaption.append(caption.cloneNode(true));
+            }
+        }
+
+        function positionLightboxCaption() {
+            if (!lightboxCaption.textContent.trim()) {
+                return;
+            }
+
+            const media = activeMediaType === "video" ? lightboxVideo : lightboxImage;
+            const mediaWidth = activeMediaType === "video" ? lightboxVideo.videoWidth : lightboxImage.naturalWidth;
+            const mediaHeight = activeMediaType === "video" ? lightboxVideo.videoHeight : lightboxImage.naturalHeight;
+            const stageRect = lightboxStage.getBoundingClientRect();
+
+            if (!mediaWidth || !mediaHeight) {
+                lightboxCaption.style.top = `${stageRect.bottom + 8}px`;
+                return;
+            }
+
+            const mediaRatio = mediaWidth / mediaHeight;
+            const renderedHeight = Math.min(stageRect.height, stageRect.width / mediaRatio);
+            const renderedBottom = stageRect.top + (stageRect.height - renderedHeight) / 2 + renderedHeight;
+            lightboxCaption.style.top = `${renderedBottom + 8}px`;
+        }
+
         hideLightboxMedia();
 
         function showMedia(index) {
@@ -241,6 +272,7 @@
 
             activeMediaType = type;
             hideLightboxMedia();
+            updateLightboxCaption(item);
 
             if (type === "video") {
                 const video = item.querySelector("video");
@@ -254,6 +286,7 @@
                 lightboxVideo.poster = video.poster || preview?.currentSrc || preview?.src || "";
                 lightboxVideo.hidden = false;
                 lightboxVideo.play().catch(() => {});
+                requestAnimationFrame(positionLightboxCaption);
                 return;
             }
 
@@ -265,10 +298,11 @@
             lightboxImage.src = image.currentSrc || image.src;
             lightboxImage.alt = image.alt;
             lightboxImage.hidden = false;
+            requestAnimationFrame(positionLightboxCaption);
         }
 
         function openLightbox(index) {
-            openingImage = galleryItems[index];
+            openingImage = galleryItems[index].querySelector("button");
             showMedia(index);
             lightbox.classList.add("is-open");
             lightbox.setAttribute("aria-hidden", "false");
@@ -365,6 +399,8 @@
         lightboxImage.addEventListener("dragstart", (event) => {
             event.preventDefault();
         });
+        lightboxImage.addEventListener("load", positionLightboxCaption);
+        lightboxVideo.addEventListener("loadedmetadata", positionLightboxCaption);
 
         lightboxStage.addEventListener("pointerdown", (event) => {
             if (!event.isPrimary || event.button !== 0) {

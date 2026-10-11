@@ -165,6 +165,10 @@
             aspect-ratio: 3 / 2;
         }
 
+        .work figcaption {
+            display: none;
+        }
+
         .work.page-open > figure {
             visibility: hidden;
         }
@@ -327,6 +331,30 @@
             height: min(78vh, 720px);
             touch-action: pan-y;
             transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            right: 7vw;
+            top: 0;
+            left: 7vw;
+            text-align: center;
+        }
+
+        .lightbox-caption:empty {
+            display: none;
+        }
+
+        .lightbox-caption a {
+            text-decoration: none;
+        }
+
+        .lightbox-caption a:hover,
+        .lightbox-caption a:focus-visible {
+            color: inherit;
+            background: transparent;
+            font-style: italic;
+            text-decoration: underline;
         }
 
         .lightbox-stage.is-dragging {
