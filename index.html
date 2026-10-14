@@ -47,7 +47,7 @@
         <section class="work" aria-label="Selected work">
             <figure data-media-type="image">
                 <button type="button" aria-label="Open image 1">
-                    <img src="assets/img/3xl_thumb.webp" data-full-src="assets/img/3xl.webp" alt="Portfolio image 1" loading="lazy">
+                    <img src="assets/img/3xl_thumb.webp" data-full-src="assets/img/3xl.webp" alt="Portfolio image 1" loading="eager" fetchpriority="high" decoding="async">
                 </button>
                 <figcaption>Objects of Affection: 3xl</figcaption>
             </figure>
@@ -255,7 +255,7 @@
         <button class="lightbox-control lightbox-close" type="button" aria-label="Close image viewer">&times;</button>
         <button class="lightbox-control lightbox-prev" type="button" aria-label="Previous image">&lsaquo;</button>
         <div class="lightbox-stage">
-            <img class="lightbox-image" src="" alt="">
+            <img class="lightbox-image" src="" alt="" decoding="async">
             <video class="lightbox-video" playsinline muted preload="metadata"></video>
         </div>
         <div class="lightbox-caption"></div>

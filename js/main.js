@@ -26,6 +26,8 @@
         let swipeAnimationTimeout = null;
         let activeMediaType = "image";
         let overlayAnimation = null;
+        let imageLoadToken = 0;
+        const preloadedImages = new Map();
 
         function animateOverlayIn(content) {
             if (!window.gsap) {
@@ -150,6 +152,7 @@
         }
 
         function hideLightboxMedia() {
+            imageLoadToken += 1;
             lightboxImage.hidden = true;
             lightboxVideo.hidden = true;
             stopVideo();
@@ -162,6 +165,39 @@
             if (caption) {
                 lightboxCaption.append(caption.cloneNode(true));
             }
+        }
+
+        function getFullImageSource(item) {
+            const image = item.querySelector("img");
+            return image?.dataset.fullSrc || image?.currentSrc || image?.src || "";
+        }
+
+        function preloadImage(index) {
+            const item = galleryItems[(index + galleryItems.length) % galleryItems.length];
+
+            if (getMediaType(item) !== "image") {
+                return;
+            }
+
+            const source = getFullImageSource(item);
+            if (!source || preloadedImages.has(source)) {
+                return;
+            }
+
+            const image = new Image();
+            image.decoding = "async";
+            image.fetchPriority = "low";
+            image.src = source;
+            preloadedImages.set(source, image);
+        }
+
+        function preloadAdjacentImages(index) {
+            if (!window.matchMedia("(min-width: 700px)").matches) {
+                return;
+            }
+
+            preloadImage(index - 1);
+            preloadImage(index + 1);
         }
 
         function positionLightboxCaption() {
@@ -225,10 +261,21 @@
                 throw new Error("An image media item must contain an image element.");
             }
 
-            lightboxImage.src = image.dataset.fullSrc || image.currentSrc || image.src;
+            const source = image.dataset.fullSrc || image.currentSrc || image.src;
+            const currentImageLoadToken = imageLoadToken;
+            lightboxImage.hidden = true;
+            lightboxImage.removeAttribute("src");
             lightboxImage.alt = image.alt;
-            lightboxImage.hidden = false;
-            requestAnimationFrame(positionLightboxCaption);
+            lightboxImage.onload = () => {
+                if (currentImageLoadToken !== imageLoadToken) {
+                    return;
+                }
+
+                lightboxImage.hidden = false;
+                requestAnimationFrame(positionLightboxCaption);
+            };
+            lightboxImage.src = source;
+            preloadAdjacentImages(activeImage);
         }
 
         function openLightbox(index) {

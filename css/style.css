@@ -378,6 +378,11 @@
             transition: opacity 250ms ease, transform 250ms ease;
         }
 
+        .lightbox-image[hidden],
+        .lightbox-video[hidden] {
+            visibility: hidden;
+        }
+
         .lightbox-stage > [hidden] {
             display: none !important;
         }
