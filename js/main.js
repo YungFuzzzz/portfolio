@@ -1,11 +1,4 @@
         const galleryItems = [...document.querySelectorAll(".work figure")];
-        const galleryVideos = galleryItems
-            .filter((item) => item.dataset.mediaType === "video")
-            .map((item) => ({
-                item,
-                video: item.querySelector("video"),
-                preview: item.querySelector(".video-preview")
-            }));
         const lightbox = document.querySelector(".lightbox");
         const lightboxStage = document.querySelector(".lightbox-stage");
         const lightboxImage = document.querySelector(".lightbox-image");
@@ -33,69 +26,6 @@
         let swipeAnimationTimeout = null;
         let activeMediaType = "image";
         let overlayAnimation = null;
-
-        function getVideoSource(video) {
-            const source = video.querySelector("source");
-            return video.dataset.videoSrc || video.src || source?.src || source?.dataset.src || "";
-        }
-
-        function activateVideo(video) {
-            if (video.dataset.videoLoaded === "true") {
-                return getVideoSource(video);
-            }
-
-            const source = video.querySelector("source");
-            const videoSource = video.dataset.videoSrc || source?.dataset.src;
-
-            if (!videoSource) {
-                return "";
-            }
-
-            video.dataset.videoLoaded = "true";
-            video.src = videoSource;
-            if (source) {
-                source.removeAttribute("data-src");
-            }
-            video.load();
-            video.play().catch(() => {});
-            return videoSource;
-        }
-
-        galleryVideos.forEach(({ item, video }) => {
-            if (!video) {
-                throw new Error("A video media item must contain a video element.");
-            }
-
-            video.addEventListener("playing", () => {
-                item.classList.add("video-playing");
-            });
-            video.addEventListener("error", () => {
-                item.classList.remove("video-playing");
-            });
-        });
-
-        if ("IntersectionObserver" in window) {
-            const videoObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach((entry) => {
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-                    const videoData = galleryVideos.find(({ item }) => item === entry.target);
-                    if (videoData) {
-                        activateVideo(videoData.video);
-                    }
-                    observer.unobserve(entry.target);
-                });
-            }, {
-                root: work,
-                rootMargin: "300px 0px"
-            });
-
-            galleryVideos.forEach(({ item }) => videoObserver.observe(item));
-        } else {
-            galleryVideos.forEach(({ video }) => activateVideo(video));
-        }
 
         function animateOverlayIn(content) {
             if (!window.gsap) {
@@ -280,7 +210,7 @@
                     throw new Error("A video media item must contain a video element.");
                 }
 
-                const source = activateVideo(video);
+                const source = window.portfolioMedia.activateVideo(video);
                 const preview = item.querySelector(".video-preview");
                 lightboxVideo.src = video.currentSrc || source;
                 lightboxVideo.poster = video.poster || preview?.currentSrc || preview?.src || "";
@@ -295,7 +225,7 @@
                 throw new Error("An image media item must contain an image element.");
             }
 
-            lightboxImage.src = image.currentSrc || image.src;
+            lightboxImage.src = image.dataset.fullSrc || image.currentSrc || image.src;
             lightboxImage.alt = image.alt;
             lightboxImage.hidden = false;
             requestAnimationFrame(positionLightboxCaption);
